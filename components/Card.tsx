@@ -75,7 +75,7 @@ export function Card({id, titulo, descripcion, icon, imagen, precio }: CardProps
             <Button
               type="button"
               variant="outline"
-              className="w-65 max-w-xs justify-center gap-2"
+              className="w-85 justify-center gap-2"
               onClick={() =>
                 onConsultWhatsApp({
                   id,
@@ -95,7 +95,7 @@ export function Card({id, titulo, descripcion, icon, imagen, precio }: CardProps
               
               <Button
                 type="button"
-                className="w-65 justify-center"
+                className="w-85 justify-center"
                 onClick={() =>
                   onAddToCart({
                     id,
