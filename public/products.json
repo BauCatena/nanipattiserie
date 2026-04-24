@@ -1,0 +1,152 @@
+
+[
+  {
+    "id": 1,
+    "name": "Nombre del producto 1",
+    "category": "Tipo de producto 1",
+    "subCategory": "Subtipo 1",
+    "price": 89.99,
+    "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&q=80",
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&q=80",
+      "https://images.unsplash.com/photo-1577803645773-f96470509666?w=800&q=80"
+    ],
+    "description": "Texto de la descripción del producto 1"
+  },
+  {
+    "id": 2,
+    "name": "Nombre del producto 2",
+    "category": "Tipo de producto 2",
+    "subCategory": "Subtipo 2",
+    "price": 59.99,
+    "image": "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=400&q=80",
+    "description": "Texto de la descripción del producto 2"
+  },
+  {
+    "id": 3,
+    "name": "Nombre del producto 3",
+    "category": "Tipo de producto 1",
+    "subCategory": "Subtipo 1",
+    "price": 79.99,
+    "image": "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400&q=80",
+    "description": "Texto de la descripción del producto 3"
+  },
+  {
+    "id": 4,
+    "name": "Nombre del producto 4",
+    "category": "Tipo de producto 2",
+    "subCategory": "Subtipo 2",
+    "price": 109.99,
+    "image": "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400&q=80",
+    "description": "Texto de la descripción del producto 4"
+  },
+  {
+    "id": 5,
+    "name": "Nombre del producto 5",
+    "category": "Tipo de producto 3",
+    "subCategory": "Subtipo 3",
+    "price": 94.99,
+    "image": "https://images.unsplash.com/photo-1577803645773-f96470509666?w=400&q=80",
+    "description": "Texto de la descripción del producto 5"
+  },
+  {
+    "id": 6,
+    "name": "Nombre del producto 6",
+    "category": "Tipo de producto 3",
+    "subCategory": "Subtipo 3",
+    "price": 69.99,
+    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&q=80",
+    "description": "Texto de la descripción del producto 6"
+  },
+  {
+    "id": 7,
+    "name": "Nombre del producto 7",
+    "category": "Tipo de producto 2",
+    "subCategory": "Subtipo 2",
+    "price": 99.99,
+    "image": "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=400&q=80",
+    "description": "Texto de la descripción del producto 7"
+  },
+  {
+    "id": 8,
+    "name": "Nombre del producto 8",
+    "category": "Tipo de producto 2",
+    "subCategory": "Subtipo 2",
+    "price": 84.99,
+    "image": "https://images.unsplash.com/photo-1582142839970-2b9e04b60f65?w=400&q=80",
+    "description": "Texto de la descripción del producto 8"
+  },
+  {
+    "id": 9,
+    "name": "Nombre del producto 9",
+    "category": "Tipo de producto 1",
+    "subCategory": "Subtipo 1",
+    "price": 49.99,
+    "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80",
+    "description": "Texto de la descripción del producto 9"
+  },
+  {
+    "id": 10,
+    "name": "Nombre del producto 10",
+    "category": "Tipo de producto 1",
+    "subCategory": "Subtipo 1",
+    "price": 49.99,
+    "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80",
+    "description": "Texto de la descripción del producto 10"
+  },
+  {
+    "id": 11,
+    "name": "Nombre del producto 11",
+    "category": "Tipo de producto 3",
+    "subCategory": "Subtipo 3",
+    "price": 24.99,
+    "image": "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&q=80",
+    "description": "Texto de la descripción del producto 11"
+  },
+  {
+    "id": 12,
+    "name": "Nombre del producto 12",
+    "category": "Tipo de producto 3",
+    "subCategory": "Subtipo 3",
+    "price": 12.99,
+    "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80",
+    "description": "Texto de la descripción del producto 12"
+  },
+  {
+    "id": 13,
+    "name": "Nombre del producto 13",
+    "category": "Tipo de producto 3",
+    "subCategory": "Subtipo 3",
+    "price": 8.99,
+    "image": "https://images.unsplash.com/photo-1633383461175-ee3a4d8d7442?w=400&q=80",
+    "description": "Texto de la descripción del producto 13"
+  },
+  {
+    "id": 14,
+    "name": "Nombre del producto 14",
+    "category": "Tipo de producto 2",
+    "subCategory": "Subtipo 2",
+    "price": 34.99,
+    "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=400&q=80",
+    "description": "Texto de la descripción del producto 14"
+  },
+  {
+    "id": 15,
+    "name": "Nombre del producto 15",
+    "category": "Tipo de producto 1",
+    "subCategory": "Subtipo 1",
+    "price": 19.99,
+    "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=400&q=80",
+    "description": "Texto de la descripción del producto 15"
+  },
+  {
+    "id": 16,
+    "name": "Nombre del producto 16",
+    "category": "Tipo de producto 2",
+    "subCategory": "Subtipo 2",
+    "price": 17.99,
+    "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=400&q=80",
+    "description": "Texto de la descripción del producto 16"
+  }
+]
