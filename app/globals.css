@@ -1,0 +1,143 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: var(--app-background);
+  --foreground: var(--app-foreground);
+  --card: var(--app-card);
+  --card-foreground: var(--app-card-foreground);
+  --popover: var(--app-popover);
+  --popover-foreground: var(--app-popover-foreground);
+  --primary: var(--app-primary);
+  --primary-foreground: var(--app-primary-foreground);
+  --secondary: var(--app-secondary);
+  --secondary-foreground: var(--app-secondary-foreground);
+  --muted: var(--app-muted);
+  --muted-foreground: var(--app-muted-foreground);
+  --accent: var(--app-accent);
+  --accent-foreground: var(--app-accent-foreground);
+  --destructive: var(--app-destructive);
+  --destructive-foreground: var(--app-destructive-foreground);
+  --border: var(--app-border);
+  --input: var(--app-input);
+  --ring: var(--app-ring);
+  --chart-1: var(--app-chart-1);
+  --chart-2: var(--app-chart-2);
+  --chart-3: var(--app-chart-3);
+  --chart-4: var(--app-chart-4);
+  --chart-5: var(--app-chart-5);
+  --radius: var(--app-radius);
+  --sidebar: var(--app-sidebar);
+  --sidebar-foreground: var(--app-sidebar-foreground);
+  --sidebar-primary: var(--app-sidebar-primary);
+  --sidebar-primary-foreground: var(--app-sidebar-primary-foreground);
+  --sidebar-accent: var(--app-sidebar-accent);
+  --sidebar-accent-foreground: var(--app-sidebar-accent-foreground);
+  --sidebar-border: var(--app-sidebar-border);
+  --sidebar-ring: var(--app-sidebar-ring);
+}
+
+.dark {
+  --background: var(--app-dark-background);
+  --foreground: var(--app-dark-foreground);
+  --card: var(--app-dark-card);
+  --card-foreground: var(--app-dark-card-foreground);
+  --popover: var(--app-dark-popover);
+  --popover-foreground: var(--app-dark-popover-foreground);
+  --primary: var(--app-dark-primary);
+  --primary-foreground: var(--app-dark-primary-foreground);
+  --secondary: var(--app-dark-secondary);
+  --secondary-foreground: var(--app-dark-secondary-foreground);
+  --muted: var(--app-dark-muted);
+  --muted-foreground: var(--app-dark-muted-foreground);
+  --accent: var(--app-dark-accent);
+  --accent-foreground: var(--app-dark-accent-foreground);
+  --destructive: var(--app-dark-destructive);
+  --destructive-foreground: var(--app-dark-destructive-foreground);
+  --border: var(--app-dark-border);
+  --input: var(--app-dark-input);
+  --ring: var(--app-dark-ring);
+  --chart-1: var(--app-dark-chart-1);
+  --chart-2: var(--app-dark-chart-2);
+  --chart-3: var(--app-dark-chart-3);
+  --chart-4: var(--app-dark-chart-4);
+  --chart-5: var(--app-dark-chart-5);
+  --sidebar: var(--app-dark-sidebar);
+  --sidebar-foreground: var(--app-dark-sidebar-foreground);
+  --sidebar-primary: var(--app-dark-sidebar-primary);
+  --sidebar-primary-foreground: var(--app-dark-sidebar-primary-foreground);
+  --sidebar-accent: var(--app-dark-sidebar-accent);
+  --sidebar-accent-foreground: var(--app-dark-sidebar-accent-foreground);
+  --sidebar-border: var(--app-dark-sidebar-border);
+  --sidebar-ring: var(--app-dark-sidebar-ring);
+}
+
+@theme inline {
+  --font-sans: var(--app-font-sans);
+  --font-mono: var(--app-font-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .optik-hover-button {
+    @apply flex items-center gap-4 p-4 rounded-lg border border-border hover:border-accent hover:bg-accent/5 hover:scale-105 hover:shadow-md transition-all duration-300;
+  }
+
+  .optik-hover-button__icon {
+    @apply w-12 h-12 rounded-full bg-secondary flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300;
+  }
+
+  .optik-hover-button__title {
+    @apply font-medium text-foreground group-hover:text-accent transition-colors duration-300;
+  }
+
+  .optik-hover-button__description {
+    @apply text-xs text-muted-foreground;
+  }
+}
