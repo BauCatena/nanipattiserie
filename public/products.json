@@ -369,30 +369,57 @@
       "description": "Bizcochos en palito cubiertos de chocolate (docena)"
     },
     {
-    "id": 42,
-    "name": "Tortaaksdakldn",
-    "param1": "Pastelería",
-    "param2": "Tortas",
-    "price": 6000,
-    "image": "cakepops.jpg",
-    "description": "Bizcochos en palito cubiertos de chocolate (docena)"
-  },
-  {
-    "id": 43,
-    "name": "Tortaaksdakldn",
-    "param1": "Panadería",
-    "param2": "Harina Blanca",
-    "price": 6000,
-    "image": "cakepops.jpg",
-    "description": "Bizcochos en palito cubiertos de chocolate (docena)"
-  },
-  {
-    "id": 44,
-    "name": "Tortaaksdakldn",
+      "id": 42,
+      "name": "Pan con semilla de 900 gr",
+      "param1": "Panadería",
+      "param2": "Harina integral",
+      "price": 4000,
+      "image": "cakepops.jpg",
+      "description": "Pan 100% integral con semillas de sesamo, lino, girasol y zapallo"
+    },
+    {
+      "id": 43,
+    "name": "Pan con semilla de 1,8 kg",
     "param1": "Panadería",
     "param2": "Harina Integral",
     "price": 6000,
     "image": "cakepops.jpg",
-    "description": "Bizcochos en palito cubiertos de chocolate (docena)"
-  }
+    "description": "Pan 100% integral con semillas de sesamo, lino, girasol y zapallo"
+  },
+  {
+    "id": 44,
+    "name": "Focaccias",
+    "param1": "Panadería",
+    "param2": "Harina Blanca",
+    "price": 6000,
+    "image": "cakepops.jpg",
+    "description": "Saborizadas de: aceitunas, cebolla, cherris y albahaca, ajo"
+  },
+  {
+    "id": 45,
+    "name": "Scones",
+    "param1": "Panadería",
+    "param2": "Harina Blanca",
+    "price": 6000,
+    "image": "cakepops.jpg",
+    "description": "Precio por 6 unidades. Rellenos de queso"
+  },
+  {
+  "id": 46,
+  "name": "Tortas con crema chantilly",
+  "param1": "Pastelería",
+  "param2": "Tortas",
+  "price": 45000,
+  "image": "cakepops.jpg",
+  "description": "Consultar para más información. El precio es precio mínimo"
+  },
+  {
+    "id": 47,
+    "name": "Tortas con crema chantilly",
+    "param1": "Pastelería",
+    "param2": "Tortas",
+    "price": 50000,
+    "image": "cakepops.jpg",
+    "description": "Consultar para más información. El precio es precio mínimo"
+    }
 ]

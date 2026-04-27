@@ -6,7 +6,6 @@ import { ArrowLeft, Phone, Trash2 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
 import { config } from "@/data/config"
 import { loadProductsFromConfig } from "@/lib/load-products"
 import {
@@ -19,7 +18,7 @@ import {
 import { buildWhatsAppUrl } from "@/lib/contact-urls"
 import type { Product } from "@/types/product"
 
-const { carrito, catalogo, footer, header, meta: siteMeta } = config
+const { carrito, catalogo, header, meta: siteMeta } = config
 
 export default function CarritoPage() {
   const [rows, setRows] = useState<
@@ -198,8 +197,6 @@ export default function CarritoPage() {
             )}
           </div>
         </section>
-
-        <Footer {...footer} />
       </div>
     </main>
   )

@@ -8,7 +8,6 @@ import { ArrowLeft, Instagram, Phone, ShoppingBag } from "lucide-react"
 import { ProductGallery } from "@/components/ProductGallery"
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/Header"
-import { Footer } from "@/components/Footer"
 import { config } from "@/data/config"
 import { loadProductsFromConfig } from "@/lib/load-products"
 import { getProductGallery } from "@/lib/product-helpers"
@@ -82,7 +81,6 @@ export default function ProductoDetallePage() {
         <div className="pt-16 md:pt-20 min-h-[50vh] flex items-center justify-center text-muted-foreground">
           {c.producto.loading}
         </div>
-        <Footer {...config.footer} />
       </main>
     )
   }
@@ -103,7 +101,6 @@ export default function ProductoDetallePage() {
             </div>
           </section>
         </div>
-        <Footer {...config.footer} />
       </main>
     )
   }
@@ -199,8 +196,6 @@ export default function ProductoDetallePage() {
             </div>
           </div>
         </section>
-
-        <Footer {...config.footer} />
       </div>
     </main>
   )
