@@ -216,9 +216,9 @@ export type SiteConfig = {
 
 export const config: SiteConfig = {
   meta: {
-    title: "Nombre del negocio | Slogan",
+    title: "Nani Patisserie",
     description:
-      "Descripción de lo que hace el negocio y lo que ofrece",
+      "Productos 100% artesanales",
   },
   theme: {
     typography: {
@@ -301,7 +301,7 @@ export const config: SiteConfig = {
   header: {
     logo: {
       src: "/logo1.svg",
-      alt: "Nombre del negocio",
+      alt: "Nani Patisserie",
       widthDesktop: 500,
       heightDesktop: 186,
       widthMobile: 300,
@@ -351,15 +351,15 @@ export const config: SiteConfig = {
   },
   productList: {
     sectionId: "Título productos",
-    eyebrow: "Subtitulo de la sección de productos",
-    title: "Titulo de la sección de productos",
+    eyebrow: "Productos 100% artesanales",
+    title: "Nuestros productos",
     productsJsonUrl: "/products.json",
     categorySubtitleSingular: "{count} producto disponible",
     categorySubtitlePlural: "{count} productos disponibles",
     tapToSelect: "Toca para seleccionar",
-    backSelectStyle: "Texto de la sección de productos",
+    backSelectStyle: "",
     backSingleCta: "Texto de la sección de productos",
-    backButtonDescription: "Texto de la sección de productos",
+    backButtonDescription: "Toca para ver más",
     tapToFlipBack: "Toca para volver",
   },
   footer: {
@@ -419,7 +419,7 @@ export const config: SiteConfig = {
     social: [
       {
         name: "Instagram",
-        href: "https://instagram.com/nombre_del_negocio",
+        href: "https://instagram.com/nanipatisserie",
         platform: "instagram",
       },
       {
@@ -439,12 +439,12 @@ export const config: SiteConfig = {
     favoriteAddAria: "Agregar a favoritos",
     favoriteRemoveAria: "Quitar de favoritos",
     consultButtonLabel: "Consultar por Instagram",
-    instagramUser: "nombre_del_negocio",
+    instagramUser: "nanipatisserie",
     consult: {
-      default: "Texto de la consulta por defecto",
+      default: "Hola como estás? Te escribo por",
       byCategory: {
-        Recetados:
-          "Texto de la consulta por categoria 1",
+        "Tipo de producto 1":
+          "Hola como estas? te consulto por",
         "Tipo de producto 2":
           "Texto de la consulta por categoria 2",
         "Tipo de producto 3": "Texto de la consulta por categoria 3",
@@ -453,7 +453,7 @@ export const config: SiteConfig = {
           "Texto de la consulta por categoria 5",
       },
     },
-    whatsappPhoneE164: "Número de WhatsApp en formato E.164 sin +: ej. 54911xxxxxxxx",
+    whatsappPhoneE164: "5492634256353",
     producto: {
       backToCatalog: "Volver al catálogo",
       detalleEyebrow: "Titulo de la sección de detalle de producto",

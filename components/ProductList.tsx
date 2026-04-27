@@ -63,7 +63,7 @@ function FlipCard({
 
   return (
     <div
-      className="w-full h-[26rem] md:h-[28rem] cursor-pointer p-4 md:p-5 box-border"
+      className="w-full h-[34rem] md:h-[37rem] cursor-pointer p-4 md:p-5 box-border"
       style={{ perspective: "1000px" }}
       onClick={() => onToggle(id)}
     >
