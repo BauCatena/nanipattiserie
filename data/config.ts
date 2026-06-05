@@ -216,9 +216,9 @@ export type SiteConfig = {
 
 export const config: SiteConfig = {
   meta: {
-    title: "Nombre del negocio | Slogan",
+    title: "MÜNT STORE",
     description:
-      "Descripción de lo que hace el negocio y lo que ofrece",
+      "Productos para el deporte",
   },
   theme: {
     typography: {
@@ -301,13 +301,13 @@ export const config: SiteConfig = {
   header: {
     logo: {
       src: "/logo1.svg",
-      alt: "Nombre del negocio",
+      alt: "MÜNT STORE",
       widthDesktop: 500,
       heightDesktop: 186,
       widthMobile: 300,
       heightMobile: 150,
     },
-    tagline: "Slogan",
+    tagline: "",
     navDesktop: [
       { label: "Inicio", href: "/" },
       { label: "Catálogo", href: "/catalogo" },
@@ -350,14 +350,14 @@ export const config: SiteConfig = {
     ],
   },
   productList: {
-    sectionId: "Título productos",
+    sectionId: "Sección de productos",
     eyebrow: "Subtitulo de la sección de productos",
-    title: "Titulo de la sección de productos",
+    title: "Nuestros productos de SOX",
     productsJsonUrl: "/products.json",
     categorySubtitleSingular: "{count} producto disponible",
     categorySubtitlePlural: "{count} productos disponibles",
     tapToSelect: "Toca para seleccionar",
-    backSelectStyle: "Texto de la sección de productos",
+    backSelectStyle: "Seleccione una opción",
     backSingleCta: "Texto de la sección de productos",
     backButtonDescription: "Texto de la sección de productos",
     tapToFlipBack: "Toca para volver",
@@ -433,15 +433,15 @@ export const config: SiteConfig = {
     allFilterLabel: "Todos",
     backToHome: "Volver al inicio",
     verCarrito: "Ver carrito",
-    heroEyebrow: "Titulo de la sección de catálogo",
+    heroEyebrow: "Nuestros productos",
     pageTitle: "Catálogo de productos",
     emptyMessage: "No se encontraron productos con los filtros seleccionados.",
     favoriteAddAria: "Agregar a favoritos",
     favoriteRemoveAria: "Quitar de favoritos",
-    consultButtonLabel: "Consultar por Instagram",
-    instagramUser: "nombre_del_negocio",
+    consultButtonLabel: "",
+    instagramUser: "",
     consult: {
-      default: "Texto de la consulta por defecto",
+      default: "Hola buenas! Estoy interesado en su producto: ",
       byCategory: {
         Recetados:
           "Texto de la consulta por categoria 1",
@@ -468,10 +468,10 @@ export const config: SiteConfig = {
   },
   carrito: {
     pageTitle: "Carrito",
-    heroEyebrow: "Titulo de la sección de carrito",
+    heroEyebrow: "Últimos pasos para completar tu compra",
     backToCatalog: "Seguir comprando",
     emptyMessage: "Todavía no hay productos en el carrito.",
-    estimatedLabel: "Texto de la sección de carrito",
+    estimatedLabel: "Total:",
     sendWhatsAppLabel: "Enviar pedido por WhatsApp",
     removeLineAria: "Quitar del carrito",
     whatsappMessageTemplate:

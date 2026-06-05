@@ -1,5 +1,4 @@
 import { Header } from "@/components/Header"
-import { Hero } from "@/components/Hero"
 import { ProductList } from "@/components/ProductList"
 import { Footer } from "@/components/Footer"
 import { config } from "@/data/config"
@@ -13,7 +12,6 @@ function MainLayout() {
     <main className="min-h-screen">
       <Header {...config.header} />
       <div className="pt-16 md:pt-20">
-        <Hero {...config.hero} />
         <ProductList {...config.productList} />
         <Footer {...config.footer} />
       </div>

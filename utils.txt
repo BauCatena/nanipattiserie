@@ -1,0 +1,4 @@
+Para refrescar schema de DB
+
+        npx supabase gen types typescript --project-id "dxqeyplocccztcecacvq" > types/supabase.ts
+
