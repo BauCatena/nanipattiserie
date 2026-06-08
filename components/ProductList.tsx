@@ -4,8 +4,10 @@ import React, { useEffect, useMemo, useState } from "react"
 import { Glasses, Sun, User, Users, Package } from "lucide-react"
 import { OptikHoverButton } from "@/components/optik-hover-button"
 import type { SiteConfig } from "@/data/config"
-import type { Product, ProductInput } from "@/types/product"
-import { normalizeProduct } from "@/lib/product-helpers"
+import { normalizeProduct, type NormalizedProduct } from "@/lib/product-helpers"
+import { ProductInput } from "@/types/product"
+
+type Product = NormalizedProduct;
 
 type CategoryCard = {
   id: string
@@ -183,7 +185,7 @@ export function ProductList({
       try {
         const res = await fetch(productsJsonUrl)
         const data = await res.json()
-        setProducts((data as ProductInput[]).map(normalizeProduct))
+        setProducts((data as ProductInput[]).map((item) => normalizeProduct(item)))
       } catch (error) {
         console.error(error)
       }

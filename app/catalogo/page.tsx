@@ -11,7 +11,9 @@ import { Card } from "@/components/Card"
 import { Button } from "@/components/ui/button"
 import { config } from "@/data/config"
 import { loadProductsFromConfig } from "@/lib/load-products"
-import type { Product } from "@/types/product"
+import type { Tables } from "@/types/supabase";
+
+type Product = Tables<'productos'>;
 
 const { catalogo: c } = config
 

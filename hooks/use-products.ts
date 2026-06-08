@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { config } from "@/data/config";
-import type { Product, ProductInput } from "@/types/product";
+import type { Tables } from "@/types/supabase";
+
+type Product = Tables<'productos'>;
+type ProductInput = Product;
 import { normalizeProduct } from "@/lib/product-helpers";
 
 type FilterOption = {

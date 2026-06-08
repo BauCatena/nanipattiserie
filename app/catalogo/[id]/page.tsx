@@ -15,7 +15,9 @@ import { getProductGallery } from "@/lib/product-helpers"
 import { buildConsultMessage } from "@/lib/build-consult-message"
 import { buildInstagramDmUrl, buildWhatsAppUrl } from "@/lib/contact-urls"
 import { addToCart } from "@/lib/cart-storage"
-import type { Product } from "@/types/product"
+import type { Tables } from "@/types/supabase"
+
+type Product = Tables<'productos'>;
 
 const { catalogo: c } = config
 

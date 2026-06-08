@@ -17,7 +17,9 @@ import {
   buildCartWhatsappMessage,
 } from "@/lib/cart-storage"
 import { buildWhatsAppUrl } from "@/lib/contact-urls"
-import type { Product } from "@/types/product"
+import type { Tables } from "@/types/supabase";
+
+type Product = Tables<'productos'>;
 
 const { carrito, catalogo, footer, header, meta: siteMeta } = config
 

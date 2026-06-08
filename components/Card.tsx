@@ -3,7 +3,9 @@
 import Image from "next/image"
 import { Phone, Shield, Sparkles, UserCheck, type LucideIcon } from "lucide-react"
 import { config } from "@/data/config"
-import type { Product } from "@/types/product"
+import type { Tables } from "@/types/supabase";
+
+type Product = Tables<'productos'>;
 import { buildConsultMessage } from "@/lib/build-consult-message"
 import { buildWhatsAppUrl } from "@/lib/contact-urls"
 import { addToCart } from "@/lib/cart-storage"

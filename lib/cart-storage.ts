@@ -1,4 +1,6 @@
-import type { Product } from "@/types/product"
+import type { Tables } from "@/types/supabase";
+
+type Product = Tables<'productos'>;
 
 export const CART_STORAGE_KEY = "optik-cart-v1"
 export const CART_STORAGE_EVENT = "optik-cart-updated"
