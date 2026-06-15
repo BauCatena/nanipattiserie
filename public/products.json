@@ -1,0 +1,434 @@
+[
+    {
+      "id": 1,
+      "name": "Lemon pie",
+      "param1": "Pastelería",
+      "param2": "Tartas",
+      "price": 22000,
+      "image": "/assets/LemonPie.jpeg",
+      "description": "Masa Sableé, crema de limón, merengue suizo"
+    },
+    {
+      "id": 2,
+      "name": "Tarta de durazno y gelatina",
+      "param1": "Pastelería",
+      "param2": "Tartas",
+      "price": 23000,
+      "image": "/assets/Tartadedurazno.jpeg",
+      "description": "Masa Sableé, crema, durazno, gelatina de durazno"
+    },
+    {
+      "id": 3,
+      "name": "Tarta de ananá y gelatina",
+      "param1": "Pastelería",
+      "param2": "Tartas",
+      "price": 24000,
+      "image": "/assets/Tartadeanana.jpeg",
+      "description": "Masa Sableé, crema, ananá, gelatina de ananá"
+    },
+    {
+      "id": 4,
+      "name": "Tarta de frutilla y gelatina",
+      "param1": "Pastelería",
+      "param2": "Tartas",
+      "price": 26000,
+      "image": "/assets/Tartadefrutilla.jpeg",
+      "description": "Masa Sableé, crema, frutilla, gelatina de frutilla"
+    },
+    {
+      "id": 5,
+      "name": "Tarta de frutilla de dulce de leche",
+      "param1": "Pastelería",
+      "param2": "Tartas",
+      "price": 27000,
+      "image": "/assets/tarta_frutilla_ddl.jpeg",
+      "description": "Masa Sableé, dulce de leche, crema, frutillas"
+    },
+    {
+      "id": 6,
+      "name": "Tarta de dulce de leche y coco",
+      "param1": "Pastelería",
+      "param2": "Tartas",
+      "price": 25000,
+      "image": "/assets/Tartadecoco.jpeg",
+      "description": "Masa Sableé, dulce de leche, coco rallado"
+    },
+    {
+      "id": 7,
+      "name": "Tarta de dulce de leche y chocolate Cabsha",
+      "param1": "Pastelería",
+      "param2": "Tartas",
+      "price": 22000,
+      "image": "/assets/Tartacabsha.jpeg",
+      "description": "Masa Sableé, dulce de leche, ganache de chocolate semi amargo"
+    },
+    {
+      "id": 8,
+      "name": "Tarta de ricota",
+      "param1": "Pastelería",
+      "param2": "Tartas",
+      "price": 25000,
+      "image": "/assets/Tartadericota.jpeg",
+      "description": "Masa Sableé, ricota y crema, azúcar espolvoreada"
+    },
+    {
+      "id": 9,
+      "name": "Tarta banoffe",
+      "param1": "Pastelería",
+      "param2": "Tartas",
+      "price": 26000,
+      "image": "/assets/Tartabanoffe.jpeg",
+      "description": "Masa Sableé de vainilla, dulce de leche, banana, salsa toffe, crema, chocolate y nueces pisadas"
+    },
+    {
+      "id": 10,
+      "name": "Cheesecake de frutos rojos",
+      "param1": "Pastelería",
+      "param2": "Postres",
+      "price": 35000,
+      "image": "/assets/Cheesecake.jpeg",
+      "description": "Base de vainilla, crema de queso, pulpa de frutos rojos, frutos rojos congelados"
+    },
+    {
+      "id": 11,
+      "name": "Cheesecake oreo",
+      "param1": "Pastelería",
+      "param2": "Postres",
+      "price": 37000,
+      "image": "cheesecake_oreo.jpeg",
+      "description": "Base de galletas oreo, crema de queso con oreo"
+    },
+    {
+      "id": 12,
+      "name": "Chocotorta",
+      "param1": "Pastelería",
+      "param2": "Postres",
+      "price": 33000,
+      "image": "/assets/Chocotorta.jpeg",
+      "description": "Capas de galletas de chocolate, crema y dulce de leche, chips de chocolate"
+    },
+    {
+      "id": 13,
+      "name": "Turron",
+      "param1": "Pastelería",
+      "param2": "Postres",
+      "price": 28000,
+      "image": "/assets/Turron.jpeg",
+      "description": "Capas de galletas, relleno de dulce de leche, chocolate y avena, coco rallado"
+    },
+    {
+      "id": 14,
+      "name": "Torta de miel",
+      "param1": "Pastelería",
+      "param2": "Postres",
+      "price": 30000,
+      "image": "/assets/Tortademiel.jpeg",
+      "description": "Capas de masa de miel, crema de queso"
+    },
+    {
+      "id": 15,
+      "name": "Brownie de frutilla",
+      "param1": "Pastelería",
+      "param2": "Postres",
+      "price": 25000,
+      "image": "/assets/BrownieF.jpeg",
+      "description": "Base de chocolate semi amargo, dulce de leche, crema y frutillas"
+    },
+    {
+      "id": 16,
+      "name": "Brownie de frutos rojos",
+      "param1": "Pastelería",
+      "param2": "Postres",
+      "price": 27000,
+      "image": "/assets/BrownieFR.jpeg",
+      "description": "Base de chocolate semi amargo, dulce de leche, crema, pulpa de frutos rojos y frutos rojos"
+    },
+    {
+      "id": 17,
+      "name": "Brownie de merengue",
+      "param1": "Pastelería",
+      "param2": "Postres",
+      "price": 22000,
+      "image": "/assets/BrownieM.jpeg",
+      "description": "Base de chocolate semi amargo, dulce de leche, merengue suizo y chocolate"
+    },
+    {
+      "id": 18,
+      "name": "Limón cocado",
+      "param1": "Pastelería",
+      "param2": "Postres",
+      "price": 29000,
+      "image": "/assets/LimonCocado.jpeg",
+      "description": "Base de galletas de coco, crema con leche condensada, coco y ralladura de limón"
+    },
+    {
+      "id": 19,
+      "name": "Pavlova de frutos rojos",
+      "param1": "Pastelería",
+      "param2": "Postres",
+      "price": 25000,
+      "image": "/assets/Pavlova.jpeg",
+      "description": "Base de merengue, crema, pulpa de frutos rojos, frutos rojos"
+    },
+    {
+      "id": 20,
+      "name": "Rogel",
+      "param1": "Pastelería",
+      "param2": "Postres",
+      "price": 30000,
+      "image": "/assets/Rogel.jpeg",
+      "description": "Base de masa, dulce de leche, merengue suizo"
+    },
+    {
+      "id": 21,
+      "name": "Mini Brownie con dulce de leche crema y frutos rojos",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 5000,
+      "image": "brownie.jpeg",
+      "description": "Brownie con dulce de leche, crema y frutos rojos"
+    },
+    {
+      "id": 22,
+      "name": "Mini Lemon pie",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 5000,
+      "image": "lemon_pie.jpeg",
+      "description": "Base de masa, crema de limón y merengue"
+    },
+    {
+      "id": 23,
+      "name": "Mini Tarta de frutilla",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 5000,
+      "image": "tarta_frutilla.jpeg",
+      "description": "Base de masa, crema pastelera y frutillas"
+    },
+    {
+      "id": 24,
+      "name": "Mini Tarta de durazno",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 5000,
+      "image": "tarta_durazno.jpeg",
+      "description": "Base de masa, crema y duraznos"
+    },
+    {
+      "id": 25,
+      "name": "Mini Tarta de ananá",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 5000,
+      "image": "tarta_ananá.jpeg",
+      "description": "Base de masa, crema y ananá"
+    },
+    {
+      "id": 26,
+      "name": "Mini Tarta Cabsha",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 5000,
+      "image": "tarta_cabsha.jpeg",
+      "description": "Base de masa, dulce de leche y chocolate"
+    },
+    {
+      "id": 27,
+      "name": "Mini Tarta de dulce de leche y coco",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 5000,
+      "image": "tarta_ddlcoco.jpeg",
+      "description": "Base de masa, dulce de leche y coco rallado"
+    },
+    {
+      "id": 28,
+      "name": "Mini Rogel",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 5000,
+      "image": "rogel.jpeg",
+      "description": "Capas de masa, dulce de leche y merengue"
+    },
+    {
+      "id": 29,
+      "name": "Mini Chocotorta",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 5000,
+      "image": "chocotorta.jpeg",
+      "description": "Galletas de chocolate con crema y dulce de leche"
+    },
+    {
+      "id": 30,
+      "name": "Mini Turron",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 5000,
+      "image": "turron.jpeg",
+      "description": "Postre dulce en capas con crema"
+    },
+    {
+      "id": 31,
+      "name": "Mini tortitas",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 5500,
+      "image": "mini_tortitas.jpeg",
+      "description": "Pequeñas tortas individuales surtidas"
+    },
+    {
+      "id": 32,
+      "name": "Cheesecake en vaso frutos rojos",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 6000,
+      "image": "cheesecake_frutos_rojos.jpeg",
+      "description": "Cheesecake con frutos rojos en vaso"
+    },
+    {
+      "id": 33,
+      "name": "Cheesecake en vaso Oreo",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 6000,
+      "image": "cheesecake_oreo.jpeg",
+      "description": "Cheesecake con galletas Oreo en vaso"
+    },
+    {
+      "id": 34,
+      "name": "Limón cocado en vaso",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 6000,
+      "image": "limon_cocaco.jpeg",
+      "description": "Postre de limón en vaso"
+    },
+    {
+      "id": 35,
+      "name": "Torta Oreo en vaso",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 6000,
+      "image": "torta_oreo_vaso.jpeg",
+      "description": "Torta de Oreo en presentación individual"
+    },
+    {
+      "id": 36,
+      "name": "Tiramisu en vaso",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 6000,
+      "image": "tiramisu.jpeg",
+      "description": "Postre tiramisú en vaso"
+    },
+    {
+      "id": 37,
+      "name": "Alfajores de maicena",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 6000,
+      "image": "alfajor_maicena.jpeg",
+      "description": "Alfajores rellenos de dulce de leche (docena)"
+    },
+    {
+      "id": 38,
+      "name": "Alfajores de miel",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 4500,
+      "image": "alfajor_miel.jpeg",
+      "description": "Alfajores de miel rellenos (docena)"
+    },
+    {
+      "id": 39,
+      "name": "Alfajores de chocolate",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 5000,
+      "image": "alfajor_chocolate.jpeg",
+      "description": "Alfajores bañados en chocolate (docena)"
+    },
+    {
+      "id": 40,
+      "name": "Conitos de dulce de leche",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 5000,
+      "image": "conitos.jpeg",
+      "description": "Conitos rellenos de dulce de leche (docena)"
+    },
+    {
+      "id": 41,
+      "name": "Cakepops",
+      "param1": "Pastelería",
+      "param2": "Mini Postres",
+      "price": 6000,
+      "image": "cakepops.jpeg",
+      "description": "Bizcochos en palito cubiertos de chocolate (docena)"
+    },
+    {
+      "id": 42,
+      "name": "Pan con semilla de 900 gr",
+      "param1": "Panadería",
+      "param2": "Harina Integral",
+      "price": 4000,
+      "image": "cakepops.jpeg",
+      "description": "Pan 100% integral con semillas de sesamo, lino, girasol y zapallo"
+    },
+    {
+      "id": 43,
+    "name": "Pan con semilla de 1,8 kg",
+    "param1": "Panadería",
+    "param2": "Harina Integral",
+    "price": 6000,
+    "image": "/assets/Panintegral.jpeg",
+    "description": "Pan 100% integral con semillas de sesamo, lino, girasol y zapallo"
+  },
+  {
+    "id": 44,
+    "name": "Focaccias",
+    "param1": "Panadería",
+    "param2": "Harina Blanca",
+    "price": 6000,
+    "image": "/assets/Focaccias.jpeg",
+    "description": "Saborizadas de: aceitunas, cebolla, cherris y albahaca, ajo"
+  },
+  {
+    "id": 45,
+    "name": "Scones",
+    "param1": "Panadería",
+    "param2": "Harina Blanca",
+    "price": 6000,
+    "image": "/assets/Scones.jpeg",
+    "description": "Precio por 6 unidades. Rellenos de queso"
+  },
+  {
+  "id": 46,
+  "name": "Tortas con crema",
+  "param1": "Pastelería",
+  "param2": "Tortas",
+  "price": 45000,
+  "image": "/assets/Tortasconcrema.jpeg",
+  "description": "Consultar para más información. El precio es precio mínimo"
+  },
+  {
+    "id": 47,
+    "name": "Tortas con butter cream",
+    "param1": "Pastelería",
+    "param2": "Tortas",
+    "price": 50000,
+    "image": "/assets/Tortaenbutter.jpeg",
+    "description": "Consultar para más información. El precio es precio mínimo"
+    },
+    {
+    "id": 48,
+    "name": "Selva negra",
+    "param1": "Pastelería",
+    "param2": "Tortas",
+    "price": 45000,
+    "image": "/assets/Tortaselvanegra.jpeg",
+    "description": "Torta de bizcochuelo de chocolate con crema, dulce de leche y cerezas"
+    }
+]
