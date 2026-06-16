@@ -51,7 +51,7 @@ export function Card({id, titulo, descripcion, icon, imagen, precio }: CardProps
     return (
       <div className="h-full rounded-lg border border-border bg-card overflow-hidden flex flex-col">
         <Link href={`/catalogo/${id}`} className="block">
-          <div className="relative aspect-[4/3] w-full bg-muted">
+          <div className="relative aspect-[1/1] w-full bg-muted">
             <Image
               src={imagen}
               alt={titulo}
