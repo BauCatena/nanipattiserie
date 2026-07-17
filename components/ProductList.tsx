@@ -70,24 +70,26 @@ function FlipCard({
       onClick={() => onToggle(id)}
     >
       <div
-        className="relative w-full h-full transition-transform duration-500"
+        className="relative w-full h-full transition-transform duration-500 rounded-lg"
         style={{
           transformStyle: "preserve-3d",
           transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
         }}
       >
         <div
-          className={`absolute inset-0 rounded-lg overflow-hidden bg-cover bg-center ${
-            isFlipped ? "pointer-events-none" : "pointer-events-auto"
+          className={`absolute inset-0 rounded-lg overflow-hidden bg-cover bg-center transition-opacity duration-500 ${
+            isFlipped ? "pointer-events-none opacity-0" : "pointer-events-auto opacity-100"
           }`}
           style={{
             backgroundImage: `url('${bgImage}')`,
             backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+            transform: "rotateY(0deg)",
           }}
         >
           <div className="absolute inset-0 bg-foreground/40" />
           <div className="relative z-10 h-full flex flex-col items-center justify-center text-center p-6 md:p-8">
-            <div className="w-16 h-16 rounded-full bg-background/20 backdrop-blur-sm flex items-center justify-center mb-6">
+            <div className="w-16 h-16 rounded-full bg-background/30 flex items-center justify-center mb-6">
               {icon}
             </div>
             <h3 className="text-2xl md:text-2xl font-light text-background mb-2">
@@ -106,6 +108,7 @@ function FlipCard({
           }`}
           style={{
             backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
           }}
         >

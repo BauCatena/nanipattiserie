@@ -125,6 +125,7 @@ export type SiteConfig = {
     tagline: string
     navDesktop: NavItem[]
     navMobile: NavItem[]
+    adminLink: NavItem
     menuOpenAria: string
     menuCloseAria: string
   }
@@ -322,6 +323,7 @@ export const config: SiteConfig = {
     ],
     menuOpenAria: "Abrir menú",
     menuCloseAria: "Cerrar menú",
+    adminLink: { label: "Admin", href: "/admin" },
   },
   hero: {
     sectionId: "newsletter",

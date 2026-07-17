@@ -27,13 +27,29 @@ export async function middleware(request: NextRequest) {
     }
   );
 
-  // Importante: Esto refresca la sesión si expiró
-  await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const pathname = request.nextUrl.pathname;
+  const isAdminRoute = pathname.startsWith('/admin');
+  const isLoginPage = pathname === '/admin/login';
+
+  if (isAdminRoute && !isLoginPage && !user) {
+    const url = request.nextUrl.clone();
+    url.pathname = '/admin/login';
+    return NextResponse.redirect(url);
+  }
+
+  if (isLoginPage && user) {
+    const url = request.nextUrl.clone();
+    url.pathname = '/admin';
+    return NextResponse.redirect(url);
+  }
 
   return supabaseResponse;
 }
 
-// Configura qué rutas van a activar este middleware (básicamente todas menos archivos estáticos)
 export const config = {
   matcher: [
     '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',

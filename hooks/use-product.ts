@@ -13,68 +13,21 @@
  */
 
 import { useEffect, useMemo, useState } from 'react';
-import { supabase } from '@/lib/supabase';
 import { config } from '@/data/config';
 import type { Tables } from '@/types/supabase';
-import fs from 'fs';
-import path from 'path';
+import { syncProductsFromSupabase } from '@/lib/sync-products';
 
-// Type aliases from Supabase
 type Product = Tables<'productos'>;
-type ProductInput = Product;
 
 // ============================================================================
-// SERVER-SIDE FUNCTIONS (for caching products from Supabase to JSON)
+// SERVER-SIDE: sync on startup
 // ============================================================================
 
-const ownerID = process.env.OWNER_ID || 'default';
-const CACHE_FILE_PATH = path.join(process.cwd(), 'public', 'products.json');
+const ownerID = process.env.OWNER_ID || null;
 
-/**
- * Writes products to local JSON cache file
- */
-function cacheProductsToFile(products: Product[]): void {
-  try {
-    const jsonString = JSON.stringify(products, null, 2);
-    fs.writeFileSync(CACHE_FILE_PATH, jsonString, 'utf-8');
-    console.log('✓ Products cached successfully at:', CACHE_FILE_PATH);
-  } catch (error) {
-    console.error('✗ Error caching products:', error);
-  }
-}
-
-/**
- * Fetches products from Supabase DB and caches them locally
- * Call this on server startup or via an API route
- */
-async function syncProductsFromSupabase(ownerId: string): Promise<Product[]> {
-  try {
-    const { data, error } = await supabase
-      .from('productos')
-      .select('*')
-      .eq('owner', ownerId);
-
-    if (error) throw error;
-
-    const products = (data || []) as Product[];
-    cacheProductsToFile(products);
-    console.log(`✓ Synced ${products.length} products from Supabase`);
-
-    return products;
-  } catch (error) {
-    console.error('✗ Error fetching products from Supabase:', error);
-    return [];
-  }
-}
-
-// Initial sync on server startup (runs only once in Node.js context)
 if (typeof window === 'undefined') {
   syncProductsFromSupabase(ownerID).catch(console.error);
 }
-
-// ============================================================================
-// CLIENT-SIDE HOOKS (React hooks for fetching from cached JSON)
-// ============================================================================
 
 type FilterOption = {
   value: string;
@@ -283,4 +236,4 @@ export function useProducts() {
  * Export for API routes or server-side operations
  * Allows manual sync of products from Supabase to JSON cache
  */
-export { syncProductsFromSupabase, cacheProductsToFile };
+export { syncProductsFromSupabase } from '@/lib/sync-products';

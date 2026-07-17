@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata } from "next"
 import { Inter, Open_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { Toaster } from "@/components/ui/sonner"
 import { config } from "@/data/config"
 import "./globals.css"
 
@@ -114,6 +115,7 @@ export default function RootLayout({
     <html lang="en" style={rootStyle}>
       <body className={`${fontClassByKey[theme.typography.googleFont]} antialiased`}>
         {children}
+        <Toaster />
         <Analytics />
       </body>
     </html>

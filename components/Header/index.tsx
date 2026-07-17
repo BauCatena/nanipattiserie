@@ -14,10 +14,16 @@ export function Header({
   tagline,
   navDesktop,
   navMobile,
+  adminLink,
   menuOpenAria,
   menuCloseAria,
 }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const navItemClass =
+    "inline-flex items-center justify-center h-8 px-3 rounded-md border border-border bg-background text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+
+  const allDesktopItems = [...navDesktop, adminLink]
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -53,37 +59,38 @@ export function Header({
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
-            {navDesktop.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
+          <nav className="hidden md:flex items-center gap-3">
+            {allDesktopItems.map((item) => (
+              <Link key={item.href} href={item.href} className={navItemClass}>
                 {item.label}
               </Link>
             ))}
           </nav>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? menuCloseAria : menuOpenAria}
-          >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+          <div className="flex items-center gap-2 md:hidden">
+            <Link href={adminLink.href} className={navItemClass}>
+              {adminLink.label}
+            </Link>
+            <Button
+              variant="outline"
+              size="icon"
+              className="size-8 shrink-0"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? menuCloseAria : menuOpenAria}
+            >
+              {isMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </Button>
+          </div>
         </div>
 
         {isMenuOpen && (
           <nav className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
               {navMobile.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                  className={`${navItemClass} w-full`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
