@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { createClient } from "@/lib/supabase-server";
+import { createAdminClient } from "@/lib/supabase-admin";
 import type { Tables } from "@/types/supabase";
 
 type Product = Tables<"productos">;
@@ -19,19 +19,24 @@ export function cacheProductsToFile(products: Product[]): void {
 export async function fetchProductsFromSupabase(
   ownerId?: string | null,
 ): Promise<Product[]> {
-  // Use the authenticated server client instead of raw @supabase/supabase-js
-  const supabase = await createClient();
+  // Use the admin client to securely bypass strict public RLS on the server side
+  const supabase = createAdminClient();
 
-  let query = supabase
-    .from("productos")
-    .select("*")
-    .order("created_at", { ascending: false });
+  // Enforce deployment's OWNER_ID if not explicitly passed as an argument
+  const targetOwnerId = ownerId ?? process.env.OWNER_ID;
 
-  if (ownerId) {
-    query = query.eq("owner", ownerId);
+  if (!targetOwnerId) {
+    throw new Error(
+      "Configuration Error: OWNER_ID is missing from environment variables.",
+    );
   }
 
-  const { data, error } = await query;
+  const { data, error } = await supabase
+    .from("productos")
+    .select("*")
+    .eq("owner", targetOwnerId) // Strict multi-tenant isolation filter
+    .order("created_at", { ascending: false });
+
   if (error) throw error;
   return (data ?? []) as Product[];
 }

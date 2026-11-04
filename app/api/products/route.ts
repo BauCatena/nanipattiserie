@@ -1,15 +1,35 @@
-import { NextResponse } from 'next/server'
-import { fetchProductsFromSupabase } from '@/lib/sync-products'
-import { normalizeProduct } from '@/lib/product-helpers'
+import { NextResponse } from "next/server";
+import { createAdminClient } from "@/lib/supabase-admin";
+import { normalizeProduct } from "@/lib/product-helpers";
 
 export async function GET() {
+  const ownerId = process.env.OWNER_ID;
+
+  if (!ownerId) {
+    return NextResponse.json(
+      { error: "Configuration Error: OWNER_ID is missing" },
+      { status: 500 },
+    );
+  }
+
   try {
-    const ownerId = process.env.OWNER_ID || null
-    const products = await fetchProductsFromSupabase(ownerId)
-    const normalized = products.map(normalizeProduct)
-    return NextResponse.json(normalized)
-  } catch (error) {
-    console.error('Error fetching products:', error)
-    return NextResponse.json({ error: 'Failed to fetch products' }, { status: 500 })
+    const supabase = createAdminClient();
+    const { data, error } = await supabase
+      .from("productos")
+      .select("*")
+      .eq("owner", ownerId) // Strict multi-tenant isolation
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    const normalized = (data || []).map(normalizeProduct);
+    return NextResponse.json(normalized);
+  } catch (err: any) {
+    return NextResponse.json(
+      { error: err.message || "Server error" },
+      { status: 500 },
+    );
   }
 }

@@ -21,6 +21,10 @@ import {
 } from "@/lib/catalog-filters";
 import { loadProductsFromConfig } from "@/lib/load-products";
 import type { Tables } from "@/types/supabase";
+import {
+  normalizeProduct,
+  type NormalizedProduct,
+} from "@/lib/product-helpers";
 
 type Product = Tables<"productos">;
 
@@ -29,7 +33,7 @@ const { catalogo: c } = config;
 export default function CatalogoPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<NormalizedProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState<CatalogFilters>(() =>
     parseFiltersFromSearchParams(searchParams),
@@ -309,11 +313,12 @@ export default function CatalogoPage() {
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredProducts.map((product) => {
-                  const attrs =
-                    (product.atributes as Record<string, any>) || {};
+                  // Use product.param1 and product.param2 which are guaranteed by normalization
                   const fallbackDesc =
                     product.description?.trim() ||
-                    [attrs.param1, attrs.param2].filter(Boolean).join(" · ") ||
+                    [product.param1, product.param2]
+                      .filter((val) => val && val !== "Sin clasificar")
+                      .join(" · ") ||
                     product.name;
 
                   return (
@@ -322,14 +327,15 @@ export default function CatalogoPage() {
                       className="rounded-xl border border-border bg-background"
                     >
                       <Card
-                        id={product.uuid}
+                        id={product.id}
+                        uuid={product.uuid}
                         titulo={product.name}
                         descripcion={fallbackDesc}
                         imagen={product.image}
                         precio={`$${Number(product.price).toFixed(2)}`}
                         soldOut={product.sold_out ?? false}
                         catalogQuery={catalogQuery}
-                        param1={attrs.param1}
+                        param1={product.param1}
                       />
                     </article>
                   );

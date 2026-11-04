@@ -1,58 +1,78 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Phone, Shield, Sparkles, UserCheck, type LucideIcon } from "lucide-react"
-import { config } from "@/data/config"
+import Image from "next/image";
+import {
+  Phone,
+  Shield,
+  Sparkles,
+  UserCheck,
+  type LucideIcon,
+} from "lucide-react";
+import { config } from "@/data/config";
 import type { Tables } from "@/types/supabase";
 
-type Product = Tables<'productos'>;
-import { buildConsultMessage } from "@/lib/build-consult-message"
-import { buildWhatsAppUrl } from "@/lib/contact-urls"
-import { addToCart } from "@/lib/cart-storage"
-import { useState } from "react"
-import Link from "next/link"
+type Product = Tables<"productos">;
+import { buildConsultMessage } from "@/lib/build-consult-message";
+import { buildWhatsAppUrl } from "@/lib/contact-urls";
+import { addToCart } from "@/lib/cart-storage";
+import { useState } from "react";
+import Link from "next/link";
 
-import type { BenefitIconName } from "@/data/config"
-import { Button } from "./ui/button"
-const { catalogo: c } = config
+import type { BenefitIconName } from "@/data/config";
+import { Button } from "./ui/button";
+const { catalogo: c } = config;
 
 const iconMap: Record<BenefitIconName, LucideIcon> = {
   userCheck: UserCheck,
   sparkles: Sparkles,
   shield: Shield,
-}
+};
+
 const onConsultWhatsApp = (p: Product) => {
-  const text = buildConsultMessage(p, c.consult)
+  const text = buildConsultMessage(p, c.consult);
   window.open(
     buildWhatsAppUrl(c.whatsappPhoneE164, text),
     "_blank",
-    "noopener,noreferrer"
-  )
-}
+    "noopener,noreferrer",
+  );
+};
 
 export type CardProps = {
-  id: number
-  titulo: string
-  descripcion: string
-  /** Presente en cards tipo beneficio (Hero). */
-  icon?: BenefitIconName
-  /** Si se define, se muestra variante con imagen (p. ej. producto). */
-  imagen?: string
-  /** Texto de precio u otra cifra, opcional. */
-  precio?: string
-}
+  id: number; // Numeric database ID for cart/actions
+  uuid?: string; // String UUID for route links
+  titulo: string;
+  descripcion: string;
+  icon?: BenefitIconName;
+  imagen?: string;
+  precio?: string;
+  param1?: string;
+};
 
-export function Card({id, titulo, descripcion, icon, imagen, precio }: CardProps) {
-  const [justAdded, setJustAdded] = useState(false)
-  const onAddToCart = (p: Product) => {
-    addToCart(p.id, 1)
-    setJustAdded(true)
-    window.setTimeout(() => setJustAdded(false), 2000)
-  }
+export function Card({
+  id,
+  uuid,
+  titulo,
+  descripcion,
+  icon,
+  imagen,
+  precio,
+  param1,
+}: CardProps) {
+  const [justAdded, setJustAdded] = useState(false);
+
+  const onAddToCart = () => {
+    addToCart(id, 1); // Uses the correct numeric product ID
+    setJustAdded(true);
+    window.setTimeout(() => setJustAdded(false), 2000);
+  };
+
+  // Fallback to id if uuid isn't provided separately
+  const linkTarget = uuid ? `/catalogo/${uuid}` : `/catalogo/${id}`;
+
   if (imagen) {
     return (
       <div className="h-full rounded-lg border border-border bg-card overflow-hidden flex flex-col">
-        <Link href={`/catalogo/${id}`} className="block">
+        <Link href={linkTarget} className="block">
           <div className="relative aspect-[4/3] w-full bg-muted">
             <Image
               src={imagen}
@@ -71,18 +91,19 @@ export function Card({id, titulo, descripcion, icon, imagen, precio }: CardProps
           ) : null}
         </div>
         <div className="w-full flex flex-col items-center justify-center gap-3 pb-2">
-  
           {/* BOTÓN WHATSAPP */}
-          <div className="w-full flex items-center justify-center">
+          <div className="w-full flex items-center justify-center px-4">
             <Button
               type="button"
               variant="outline"
-              className="w-85 justify-center gap-2"
+              className="w-full justify-center gap-2"
               onClick={() =>
                 onConsultWhatsApp({
                   id,
+                  uuid,
                   name: titulo,
                   description: descripcion,
+                  param1: param1,
                 } as Product)
               }
             >
@@ -92,38 +113,32 @@ export function Card({id, titulo, descripcion, icon, imagen, precio }: CardProps
           </div>
 
           {/* BOTÓN CARRITO */}
-          <div className="w-full flex justify-center">
-            <div className="w-full items-center max-w-xs p-2 pt-3 border-t border-border/60 flex flex-col items-center gap-2">
-              
+          <div className="w-full flex justify-center px-4">
+            <div className="w-full max-w-xs p-2 pt-3 border-t border-border/60 flex flex-col items-center gap-2">
               <Button
                 type="button"
-                className="w-85 justify-center"
-                onClick={() =>
-                  onAddToCart({
-                    id,
-                    name: titulo,
-                    description: descripcion,
-                  } as Product)
-                }
+                className="w-full justify-center"
+                onClick={onAddToCart}
               >
                 {c.producto.addToCart}
               </Button>
 
               {justAdded ? (
-                <p className="text-xs text-accent text-center" aria-live="polite">
+                <p
+                  className="text-xs text-accent text-center"
+                  aria-live="polite"
+                >
                   {c.producto.addedFeedback}
                 </p>
               ) : null}
-
             </div>
           </div>
-
-</div>
+        </div>
       </div>
-    )
+    );
   }
 
-  const Icon = icon ? iconMap[icon] : null
+  const Icon = icon ? iconMap[icon] : null;
 
   return (
     <div className="h-full rounded-lg border border-border bg-card p-6 flex flex-col gap-3">
@@ -138,5 +153,5 @@ export function Card({id, titulo, descripcion, icon, imagen, precio }: CardProps
         <p className="text-base font-semibold text-foreground">{precio}</p>
       ) : null}
     </div>
-  )
+  );
 }

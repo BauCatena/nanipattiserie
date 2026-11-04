@@ -430,7 +430,7 @@ export const config: SiteConfig = {
     consultButtonLabel: "Consultar por Instagram",
     instagramUser: "nanipatisserie",
     consult: {
-      default: "Hola como estás? Te escribo por",
+      default: "Hola ¿como estás? Queria consultarte acerca de: ",
       byCategory: {
         "Tipo de producto 1": "Hola como estas? te consulto por",
         "Tipo de producto 2": "Texto de la consulta por categoria 2",
@@ -467,7 +467,7 @@ export const config: SiteConfig = {
     estimatedLabel: "Total estimado",
     sendWhatsAppLabel: "Enviar pedido por WhatsApp",
     removeLineAria: "Quitar del carrito",
-    whatsappMessageTemplate: "Texto de la sección de carrito",
+    whatsappMessageTemplate: "Hola ¿Como estas? Me gustaria encargarte:",
     tableProduct: "Producto",
     tableQty: "Cant.",
     tableUnit: "P. unit.",
