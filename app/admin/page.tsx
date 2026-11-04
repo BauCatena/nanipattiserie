@@ -1,98 +1,102 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
-import Link from 'next/link'
-import { ArrowLeft, LogOut, Plus, Pencil, Trash2 } from 'lucide-react'
-import { toast } from 'sonner'
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { ArrowLeft, LogOut, Plus, Pencil, Trash2 } from "lucide-react";
+import { toast } from "sonner";
 
-import { Button } from '@/components/ui/button'
-import { AdminShell } from '@/layouts/AdminShell'
-import { createBrowserSupabaseClient } from '@/lib/supabase-browser'
-import { normalizeProduct, type NormalizedProduct } from '@/lib/product-helpers'
-import type { User } from '@supabase/supabase-js'
+import { Button } from "@/components/ui/button";
+import { AdminShell } from "@/layouts/AdminShell";
+import { createBrowserSupabaseClient } from "@/lib/supabase-browser";
+import type { NormalizedProduct } from "@/lib/product-helpers";
+import type { User } from "@supabase/supabase-js";
 
 export default function AdminDashboardPage() {
-  const router = useRouter()
-  const [user, setUser] = useState<User | null>(null)
-  const [products, setProducts] = useState<NormalizedProduct[]>([])
-  const [loading, setLoading] = useState(true)
+  const router = useRouter();
+  const [user, setUser] = useState<User | null>(null);
+  const [products, setProducts] = useState<NormalizedProduct[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const supabase = createBrowserSupabaseClient()
+    const supabase = createBrowserSupabaseClient();
     supabase.auth.getUser().then(({ data }) => {
       if (!data.user) {
-        router.replace('/admin/login')
-        return
+        router.replace("/admin/login");
+        return;
       }
-      setUser(data.user)
-      loadProducts(data.user.id)
-    })
-  }, [router])
+      setUser(data.user);
+      loadProducts();
+    });
+  }, [router]);
 
-  const loadProducts = async (ownerId: string) => {
-    setLoading(true)
+  const loadProducts = async () => {
+    setLoading(true);
     try {
-      const supabase = createBrowserSupabaseClient()
-      const { data, error } = await supabase
-        .from('productos')
-        .select('*')
-        .eq('owner', ownerId)
-        .order('created_at', { ascending: false })
-
-      if (error) throw error
-      setProducts((data ?? []).map(normalizeProduct))
+      const res = await fetch("/api/admin/products");
+      if (!res.ok) throw new Error("Failed to fetch");
+      const data = await res.json();
+      setProducts(data);
     } catch {
-      toast.error('Error al cargar productos')
+      toast.error("Error al cargar productos");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   const handleLogout = async () => {
-    const supabase = createBrowserSupabaseClient()
-    await supabase.auth.signOut()
-    router.replace('/admin/login')
-  }
+    const supabase = createBrowserSupabaseClient();
+    await supabase.auth.signOut();
+    router.replace("/admin/login");
+  };
 
   const handleCreate = async () => {
-    if (!user) return
-    const supabase = createBrowserSupabaseClient()
-    const { data, error } = await supabase
-      .from('productos')
-      .insert({
-        name: 'Nuevo producto',
-        price: 0,
-        image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800',
-        owner: user.id,
-        atributes: { param1: 'Sin clasificar', param2: 'Sin clasificar' },
-      })
-      .select()
-      .single()
+    if (!user) return;
+    try {
+      const res = await fetch("/api/admin/products", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "Nuevo producto",
+          price: 0,
+          image:
+            "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",
+        }),
+      });
 
-    if (error) {
-      toast.error('Error al crear producto')
-      return
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.error || "Error al crear producto");
+      }
+      const data = await res.json();
+
+      toast.success("Producto creado");
+      router.push(`/admin/catalogo/${data.id}`);
+    } catch (error: any) {
+      console.error(error);
+      toast.error(error.message || "Error al crear producto");
     }
-
-    await fetch('/api/admin/sync', { method: 'POST' })
-    toast.success('Producto creado')
-    router.push(`/admin/catalogo/${data.id}`)
-  }
+  };
 
   const handleDelete = async (uuid: string) => {
-    if (!confirm('¿Eliminar este producto?')) return
-    const supabase = createBrowserSupabaseClient()
-    const { error } = await supabase.from('productos').delete().eq('uuid', uuid)
-    if (error) {
-      toast.error('Error al eliminar')
-      return
-    }
-    await fetch('/api/admin/sync', { method: 'POST' })
-    toast.success('Producto eliminado')
-    if (user) loadProducts(user.id)
-  }
+    if (!confirm("¿Eliminar este producto?")) return;
+    try {
+      const res = await fetch(`/api/admin/products/${uuid}`, {
+        method: "DELETE",
+      });
 
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.error || "Error al eliminar producto");
+      }
+
+      toast.success("Producto eliminado");
+      loadProducts();
+    } catch (error: any) {
+      console.error(error);
+      toast.error(error.message || "Error al eliminar");
+    }
+  };
   return (
     <AdminShell>
       <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -103,15 +107,24 @@ export default function AdminDashboardPage() {
           <ArrowLeft className="w-4 h-4" />
           Volver a la tienda
         </Link>
-        <Button variant="ghost" size="sm" onClick={handleLogout} className="gap-2 w-fit sm:ml-auto">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={handleLogout}
+          className="gap-2 w-fit sm:ml-auto"
+        >
           <LogOut className="size-4" />
           Salir
         </Button>
       </div>
 
       <div className="mb-10 text-center">
-        <p className="text-sm uppercase tracking-widest text-accent mb-3">Administración</p>
-        <h1 className="text-3xl md:text-4xl font-light text-foreground">Panel de productos</h1>
+        <p className="text-sm uppercase tracking-widest text-accent mb-3">
+          Administración
+        </p>
+        <h1 className="text-3xl md:text-4xl font-light text-foreground">
+          Panel de productos
+        </h1>
         {user?.email ? (
           <p className="mt-3 text-sm text-muted-foreground">{user.email}</p>
         ) : null}
@@ -128,7 +141,9 @@ export default function AdminDashboardPage() {
         <p className="text-center text-muted-foreground">Cargando…</p>
       ) : products.length === 0 ? (
         <div className="max-w-xl mx-auto text-center">
-          <p className="text-muted-foreground mb-6">No hay productos todavía.</p>
+          <p className="text-muted-foreground mb-6">
+            No hay productos todavía.
+          </p>
           <Button onClick={handleCreate} variant="outline" className="gap-2">
             <Plus className="size-4" />
             Crear el primero
@@ -146,14 +161,23 @@ export default function AdminDashboardPage() {
                 style={{ backgroundImage: `url(${product.image})` }}
               />
               <div className="p-6 flex flex-col gap-2 flex-1">
-                <h3 className="text-lg font-medium text-foreground truncate">{product.name}</h3>
+                <h3 className="text-lg font-medium text-foreground truncate">
+                  {product.name}
+                </h3>
                 <p className="text-sm text-muted-foreground">
                   {product.param1} · {product.param2}
                 </p>
-                <p className="text-base font-semibold text-foreground">${product.price.toFixed(2)}</p>
+                <p className="text-base font-semibold text-foreground">
+                  ${product.price.toFixed(2)}
+                </p>
               </div>
               <div className="px-6 pb-6 flex items-center gap-2">
-                <Button asChild variant="outline" size="sm" className="flex-1 gap-1.5">
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="flex-1 gap-1.5"
+                >
                   <Link href={`/admin/catalogo/${product.id}`}>
                     <Pencil className="size-3.5" />
                     Editar
@@ -173,5 +197,5 @@ export default function AdminDashboardPage() {
         </div>
       )}
     </AdminShell>
-  )
+  );
 }

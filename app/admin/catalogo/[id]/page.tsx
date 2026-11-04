@@ -6,10 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import { ProductDetailView } from "@/components/ProductDetailView";
 import { AdminShell } from "@/layouts/AdminShell";
 import { createBrowserSupabaseClient } from "@/lib/supabase-browser";
-import {
-  normalizeProduct,
-  type NormalizedProduct,
-} from "@/lib/product-helpers";
+import type { NormalizedProduct } from "@/lib/product-helpers";
 import { config } from "@/data/config";
 
 export default function AdminProductEditPage() {
@@ -17,13 +14,13 @@ export default function AdminProductEditPage() {
   const router = useRouter();
   const rawId = params?.id;
   const idStr = Array.isArray(rawId) ? rawId[0] : rawId;
-  const id = idStr ? Number.parseInt(idStr, 10) : NaN;
 
   const [product, setProduct] = useState<NormalizedProduct | null | undefined>(
     undefined,
   );
   const [userId, setUserId] = useState<string | null>(null);
 
+  // 1. Authenticate user session
   useEffect(() => {
     const supabase = createBrowserSupabaseClient();
     supabase.auth.getUser().then(({ data }) => {
@@ -35,29 +32,29 @@ export default function AdminProductEditPage() {
     });
   }, [router]);
 
+  // 2. Fetch product via the secure admin API route
   useEffect(() => {
-    if (!userId || !Number.isFinite(id)) return;
+    if (!userId || !idStr) return;
     let cancel = false;
 
     (async () => {
-      const supabase = createBrowserSupabaseClient();
-      const { data, error } = await supabase
-        .from("productos")
-        .select("*")
-        .eq("id", id)
-        .eq("owner", userId)
-        .single();
-
-      if (!cancel) {
-        if (error || !data) setProduct(null);
-        else setProduct(normalizeProduct(data));
+      try {
+        const res = await fetch(`/api/admin/products/${idStr}`);
+        if (!res.ok) {
+          if (!cancel) setProduct(null);
+          return;
+        }
+        const data = await res.json();
+        if (!cancel) setProduct(data);
+      } catch {
+        if (!cancel) setProduct(null);
       }
     })();
 
     return () => {
       cancel = true;
     };
-  }, [id, userId]);
+  }, [idStr, userId]);
 
   if (product === undefined) {
     return (

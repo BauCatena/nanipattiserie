@@ -1,83 +1,59 @@
-'use client'
+"use client";
 
-import { useId, useState } from 'react'
-import { Pencil } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { useId, useState } from "react";
+import { Pencil } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Label } from '@/components/ui/label'
-import { resolveCanonicalValue } from '@/lib/attribute-options'
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { resolveCanonicalValue } from "@/lib/attribute-options";
 
 type EditableFieldProps = {
-  label: string
-  value: string
-  onSave: (value: string) => Promise<void>
-  multiline?: boolean
-  type?: 'text' | 'number'
-  suggestions?: string[]
-}
-
-function SuggestionChips({
-  suggestions,
-  onSelect,
-}: {
-  suggestions: string[]
-  onSelect: (value: string) => void
-}) {
-  if (suggestions.length === 0) return null
-
-  return (
-    <div className="flex flex-wrap gap-1.5 pt-1">
-      {suggestions.map((s) => (
-        <button
-          key={s}
-          type="button"
-          onClick={() => onSelect(s)}
-          className="text-xs px-2 py-1 rounded-full border border-border bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
-        >
-          {s}
-        </button>
-      ))}
-    </div>
-  )
-}
+  label: string;
+  value: string;
+  onSave: (value: string) => Promise<void>;
+  multiline?: boolean;
+  type?: "text" | "number";
+  suggestions?: string[];
+};
 
 export function EditableField({
   label,
   value,
   onSave,
   multiline = false,
-  type = 'text',
+  type = "text",
   suggestions = [],
 }: EditableFieldProps) {
-  const listId = useId()
-  const [open, setOpen] = useState(false)
-  const [draft, setDraft] = useState(value)
-  const [saving, setSaving] = useState(false)
+  const listId = useId();
+  const [open, setOpen] = useState(false);
+  const [draft, setDraft] = useState(value);
+  const [saving, setSaving] = useState(false);
 
   const handleOpen = () => {
-    setDraft(value)
-    setOpen(true)
-  }
+    setDraft(value);
+    setOpen(true);
+  };
 
   const handleSave = async () => {
-    setSaving(true)
+    setSaving(true);
     try {
       const resolved =
-        type === 'number' ? draft : resolveCanonicalValue(draft, suggestions)
-      await onSave(resolved)
-      setOpen(false)
+        type === "number" ? draft : resolveCanonicalValue(draft, suggestions);
+      await onSave(resolved);
+      setOpen(false);
     } finally {
-      setSaving(false)
+      setSaving(false);
     }
-  }
+  };
 
   return (
     <>
@@ -91,11 +67,13 @@ export function EditableField({
       </button>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent>
+        <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle>Editar {label}</DialogTitle>
+            <DialogDescription>Modificá el valor del campo.</DialogDescription>
           </DialogHeader>
-          <div className="space-y-2">
+
+          <div className="space-y-3">
             <Label htmlFor="edit-field">{label}</Label>
             {multiline ? (
               <Textarea
@@ -122,25 +100,38 @@ export function EditableField({
                 ) : null}
               </>
             )}
-            {type !== 'number' ? (
-              <SuggestionChips suggestions={suggestions} onSelect={setDraft} />
-            ) : null}
-            {suggestions.length > 0 && type !== 'number' ? (
-              <p className="text-xs text-muted-foreground">
-                Elegí un valor existente para evitar duplicados por mayúsculas.
-              </p>
+
+            {/* Simple, flat suggestion chips matching the catalog's direct mapping */}
+            {type !== "number" && suggestions.length > 0 ? (
+              <div className="flex flex-wrap gap-1.5 pt-1 max-h-40 overflow-y-auto">
+                {suggestions.map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    onClick={() => setDraft(s)}
+                    className="text-xs px-2.5 py-1 rounded-full border border-border bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
             ) : null}
           </div>
+
           <DialogFooter>
-            <Button variant="outline" onClick={() => setOpen(false)} disabled={saving}>
+            <Button
+              variant="outline"
+              onClick={() => setOpen(false)}
+              disabled={saving}
+            >
               Cancelar
             </Button>
             <Button onClick={handleSave} disabled={saving}>
-              {saving ? 'Guardando…' : 'Guardar'}
+              {saving ? "Guardando…" : "Guardar"}
             </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
     </>
-  )
+  );
 }
