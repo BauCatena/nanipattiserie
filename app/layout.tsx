@@ -1,24 +1,25 @@
-import React from "react"
-import type { Metadata } from "next"
-import { Inter, Open_Sans } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import { Toaster } from "@/components/ui/sonner"
-import { config } from "@/data/config"
-import "./globals.css"
+import React from "react";
+import type { Metadata } from "next";
+import { Inter, Open_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { Toaster } from "@/components/ui/sonner";
+import { syncProductsFromSupabase } from "@/lib/sync-products";
+import { config } from "@/data/config";
+import "./globals.css";
 
-const openSans = Open_Sans({ 
+const openSans = Open_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
 const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-})
+});
 
 const fontClassByKey = {
   Open_Sans: openSans.className,
   Inter: inter.className,
-} as const
+} as const;
 
 export const metadata: Metadata = {
   title: config.meta.title,
@@ -27,20 +28,26 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/logo2.svg',
-        type: 'image/svg+xml',
+        url: "/logo2.svg",
+        type: "image/svg+xml",
       },
     ],
-    apple: '/apple-icon.png',
+    apple: "/apple-icon.png",
   },
-}
+};
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
-  const { theme } = config
+  try {
+    await syncProductsFromSupabase();
+  } catch (error) {
+    console.error("Failed to sync products during layout render:", error);
+  }
+
+  const { theme } = config;
   const rootStyle = {
     "--app-font-sans": theme.typography.fontSansVar,
     "--app-font-mono": theme.typography.fontMonoVar,
@@ -72,9 +79,11 @@ export default function RootLayout({
     "--app-sidebar": theme.colors.light.sidebar,
     "--app-sidebar-foreground": theme.colors.light.sidebarForeground,
     "--app-sidebar-primary": theme.colors.light.sidebarPrimary,
-    "--app-sidebar-primary-foreground": theme.colors.light.sidebarPrimaryForeground,
+    "--app-sidebar-primary-foreground":
+      theme.colors.light.sidebarPrimaryForeground,
     "--app-sidebar-accent": theme.colors.light.sidebarAccent,
-    "--app-sidebar-accent-foreground": theme.colors.light.sidebarAccentForeground,
+    "--app-sidebar-accent-foreground":
+      theme.colors.light.sidebarAccentForeground,
     "--app-sidebar-border": theme.colors.light.sidebarBorder,
     "--app-sidebar-ring": theme.colors.light.sidebarRing,
     "--app-dark-background": theme.colors.dark.background,
@@ -92,7 +101,8 @@ export default function RootLayout({
     "--app-dark-accent": theme.colors.dark.accent,
     "--app-dark-accent-foreground": theme.colors.dark.accentForeground,
     "--app-dark-destructive": theme.colors.dark.destructive,
-    "--app-dark-destructive-foreground": theme.colors.dark.destructiveForeground,
+    "--app-dark-destructive-foreground":
+      theme.colors.dark.destructiveForeground,
     "--app-dark-border": theme.colors.dark.border,
     "--app-dark-input": theme.colors.dark.input,
     "--app-dark-ring": theme.colors.dark.ring,
@@ -104,20 +114,24 @@ export default function RootLayout({
     "--app-dark-sidebar": theme.colors.dark.sidebar,
     "--app-dark-sidebar-foreground": theme.colors.dark.sidebarForeground,
     "--app-dark-sidebar-primary": theme.colors.dark.sidebarPrimary,
-    "--app-dark-sidebar-primary-foreground": theme.colors.dark.sidebarPrimaryForeground,
+    "--app-dark-sidebar-primary-foreground":
+      theme.colors.dark.sidebarPrimaryForeground,
     "--app-dark-sidebar-accent": theme.colors.dark.sidebarAccent,
-    "--app-dark-sidebar-accent-foreground": theme.colors.dark.sidebarAccentForeground,
+    "--app-dark-sidebar-accent-foreground":
+      theme.colors.dark.sidebarAccentForeground,
     "--app-dark-sidebar-border": theme.colors.dark.sidebarBorder,
     "--app-dark-sidebar-ring": theme.colors.dark.sidebarRing,
-  } as React.CSSProperties
+  } as React.CSSProperties;
 
   return (
     <html lang="en" style={rootStyle}>
-      <body className={`${fontClassByKey[theme.typography.googleFont]} antialiased`}>
+      <body
+        className={`${fontClassByKey[theme.typography.googleFont]} antialiased`}
+      >
         {children}
         <Toaster />
         <Analytics />
       </body>
     </html>
-  )
+  );
 }

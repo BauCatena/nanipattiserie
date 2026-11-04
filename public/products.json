@@ -1,31 +1,754 @@
 [
   {
-    "id": 21,
-    "name": "Nuevo producto",
-    "price": 0,
-    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",
+    "id": 1,
+    "name": "Lemon pie",
+    "price": 25000,
+    "image": "/assets/LemonPie.jpeg",
     "images": null,
-    "description": null,
-    "created_at": "2026-07-15T18:14:54.776635+00:00",
+    "description": "Masa Sableé, crema de limón, merengue suizo",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
     "sold_out": false,
-    "uuid": "58f34a60-d898-4e30-931d-b835eab4fd6e",
-    "owner": "9c711a0f-d645-4244-bc31-5baf6a7903d2",
+    "uuid": "9d910114-4876-4936-9c68-26598476f84a",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
     "atributes": {
-      "param1": "Sin clasificar",
-      "param2": "Sin clasificar"
+      "param1": "Pastelería",
+      "param2": "Tartas"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Tarta de durazno y gelatina",
+    "price": 24000,
+    "image": "/assets/Tartadedurazno.jpeg",
+    "images": null,
+    "description": "Masa Sableé, crema, durazno, gelatina de durazno",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "1ff2d610-6ffd-4b25-8b92-495342f13e31",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Tartas"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Tarta de ananá y gelatina",
+    "price": 25000,
+    "image": "/assets/Tartadeanana.jpeg",
+    "images": null,
+    "description": "Masa Sableé, crema, ananá, gelatina de ananá",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "6a94fc9e-4757-43cf-84da-ace101a70817",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Tartas"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Tarta de frutilla y gelatina",
+    "price": 26000,
+    "image": "/assets/TortaDeFrutillaYGelatina.jpeg",
+    "images": null,
+    "description": "Masa Sableé, crema, frutilla, gelatina de frutilla. Invierno: $32.000",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "81e2251d-ac24-4eb4-82f4-32524a274a85",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Tartas"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Tarta de frutilla de dulce de leche",
+    "price": 27000,
+    "image": "/assets/Tartadefrutilla.jpeg",
+    "images": null,
+    "description": "Masa Sableé, dulce de leche, crema, frutillas",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "728475f6-cce0-4393-a34a-d5e2fa26ae37",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Tartas"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Tarta de dulce de leche y coco",
+    "price": 25000,
+    "image": "/assets/Tartadecoco.jpeg",
+    "images": null,
+    "description": "Masa Sableé, dulce de leche, coco rallado",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "da60c410-0c0f-4947-8702-cf4a53901ca6",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Tartas"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Tarta de dulce de leche y chocolate Cabsha",
+    "price": 25000,
+    "image": "/assets/Tartacabsha.jpeg",
+    "images": null,
+    "description": "Masa Sableé, dulce de leche, ganache de chocolate semi amargo",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "f79cab9f-230e-4c8e-8a5a-6fa46febc2b0",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Tartas"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Tarta de ricota",
+    "price": 27000,
+    "image": "/assets/Tartadericota.jpeg",
+    "images": null,
+    "description": "Masa Sableé, ricota y crema, azúcar espolvoreada",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "6a1669ae-b46b-4a5a-907e-56343a2d4dd4",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Tartas"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Tarta banoffe",
+    "price": 26000,
+    "image": "/assets/Tartabanoffe.jpeg",
+    "images": null,
+    "description": "Masa Sableé de vainilla, dulce de leche, banana, salsa toffe, crema, chocolate y nueces pisadas",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "6f1aad93-437c-49f8-90ea-445ea8c068b4",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Tartas"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Cheesecake de frutos rojos",
+    "price": 35000,
+    "image": "/assets/Cheesecake.jpeg",
+    "images": null,
+    "description": "Base de vainilla, crema de queso, pulpa de frutos rojos, frutos rojos congelados",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "fb68d1bb-4270-4d5c-9e5e-9af1ede365a8",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Postres"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Cheesecake oreo",
+    "price": 37000,
+    "image": "/products/placeholder.svg",
+    "images": null,
+    "description": "Base de galletas oreo, crema de queso con oreo",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "128b4a6f-1c67-4291-b9c4-ccc7a94b9fb2",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Postres"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Chocotorta",
+    "price": 33000,
+    "image": "/assets/Chocotorta.jpeg",
+    "images": null,
+    "description": "Capas de galletas de chocolate, crema y dulce de leche, chips de chocolate",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "2ced72f1-bfa1-459f-baeb-08090b4245f9",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Postres"
+    }
+  },
+  {
+    "id": 13,
+    "name": "Turron",
+    "price": 28000,
+    "image": "/assets/Turron.jpeg",
+    "images": null,
+    "description": "Capas de galletas, relleno de dulce de leche, chocolate y avena, coco rallado",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "eea47da2-072a-440b-a6fd-9d98ddf2b2e9",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Postres"
+    }
+  },
+  {
+    "id": 14,
+    "name": "Torta de miel",
+    "price": 30000,
+    "image": "/assets/TortaDeMiel.jpeg",
+    "images": null,
+    "description": "Capas de masa de miel, crema de queso",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "b33438b4-d54f-4cdb-91cc-dafdd485a6f8",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Postres"
+    }
+  },
+  {
+    "id": 15,
+    "name": "Brownie de frutilla",
+    "price": 30000,
+    "image": "/assets/BrownieF.jpeg",
+    "images": null,
+    "description": "Base de chocolate semi amargo, dulce de leche, crema y frutillas",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "3bf19c90-6393-4401-be0e-286b054c421d",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Postres"
+    }
+  },
+  {
+    "id": 16,
+    "name": "Brownie de frutos rojos",
+    "price": 29000,
+    "image": "/assets/BrownieFR.jpeg",
+    "images": null,
+    "description": "Base de chocolate semi amargo, dulce de leche, crema, pulpa de frutos rojos y frutos rojos",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "848fa716-b4cf-4933-992d-c6aae6e23bff",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Postres"
+    }
+  },
+  {
+    "id": 17,
+    "name": "Brownie de merengue",
+    "price": 25000,
+    "image": "/assets/BrownieM.jpeg",
+    "images": null,
+    "description": "Base de chocolate semi amargo, dulce de leche, merengue suizo y chocolate",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "75de65d9-c718-4a30-808d-e8bbaa797f01",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Postres"
     }
   },
   {
     "id": 18,
-    "name": "Media 1",
-    "price": 124,
-    "image": "a",
+    "name": "Limón cocado",
+    "price": 27000,
+    "image": "/assets/LimonCocado.jpeg",
     "images": null,
-    "description": null,
-    "created_at": "2026-06-13T17:53:30.465621+00:00",
+    "description": "Base de galletas de coco, crema con leche condensada, coco y ralladura de limón",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
     "sold_out": false,
-    "uuid": "da95388c-be1e-48b4-97a9-939559cc1d85",
-    "owner": "9c711a0f-d645-4244-bc31-5baf6a7903d2",
-    "atributes": null
+    "uuid": "88336fc9-5863-4b44-a5ff-53b0d94e9315",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Postres"
+    }
+  },
+  {
+    "id": 19,
+    "name": "Pavlova de frutos rojos",
+    "price": 23000,
+    "image": "/assets/Pavlova.jpeg",
+    "images": null,
+    "description": "Base de merengue, crema, pulpa de frutos rojos, frutos rojos",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "09913614-d61d-4f74-9aa2-b7ca5917f905",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Postres"
+    }
+  },
+  {
+    "id": 20,
+    "name": "Rogel",
+    "price": 30000,
+    "image": "/assets/Rogel.jpeg",
+    "images": null,
+    "description": "Base de masa, dulce de leche, merengue suizo",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "c29f29c7-1ee8-470e-8388-d5619b45e3f2",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Postres"
+    }
+  },
+  {
+    "id": 21,
+    "name": "Mini Brownie con dulce de leche crema y frutos rojos",
+    "price": 10000,
+    "image": "/assets/MiniBrownies.jpeg",
+    "images": null,
+    "description": "Brownie con dulce de leche, crema y frutos rojos. Desde 5 unidades.",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "7fe3ef21-d844-450d-8bd9-c825203b8d76",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 22,
+    "name": "Mini Lemon pie",
+    "price": 10000,
+    "image": "/assets/MiniLemonPie.jpeg",
+    "images": null,
+    "description": "Base de masa, crema de limón y merengue. Desde 5 unidades.",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "6b0a3089-9bff-4a70-9f1c-b8e2e4d7ad79",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 23,
+    "name": "Mini Tarta de dulce de leche y coco",
+    "price": 10000,
+    "image": "/products/placeholder.svg",
+    "images": null,
+    "description": "Base de masa, dulce de leche y coco rallado. Desde 5 unidades.",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "92cda7b0-0704-4a25-aeac-ea6830b709e1",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 24,
+    "name": "Mini Rogel",
+    "price": 10000,
+    "image": "/assets/MiniRogel.jpeg",
+    "images": null,
+    "description": "Capas de masa, dulce de leche y merengue. Desde 5 unidades.",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "1af0b017-04f1-4430-b7f0-39860b60687a",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 25,
+    "name": "Mini Chocotorta",
+    "price": 10000,
+    "image": "/assets/MiniChocotortas.jpeg",
+    "images": null,
+    "description": "Galletas de chocolate con crema y dulce de leche. Desde 5 unidades.",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "c33c585b-e375-459f-a9eb-c71f7b9e0377",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 26,
+    "name": "Mini Turron",
+    "price": 10000,
+    "image": "/assets/MiniTurronesAlemanes.jpeg",
+    "images": null,
+    "description": "Postre dulce en capas con crema. Desde 5 unidades.",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "b342e3d1-7655-438a-9646-c890d13316de",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 27,
+    "name": "Mini tortitas",
+    "price": 12000,
+    "image": "/products/placeholder.svg",
+    "images": null,
+    "description": "Pequeñas tortas individuales surtidas. Desde 5 unidades.",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "c97dd870-5ecb-4c29-b442-a768d748e231",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 28,
+    "name": "Cheesecake en vaso frutos rojos",
+    "price": 16000,
+    "image": "/assets/MiniCheesecakeFR.jpeg",
+    "images": null,
+    "description": "Cheesecake con frutos rojos en vaso. Desde 5 unidades.",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "28d42437-e2e0-4bb2-b918-6ee83c1ad6c1",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 29,
+    "name": "Cheesecake en vaso Oreo",
+    "price": 16000,
+    "image": "/assets/MiniCheescakeOreo.jpeg",
+    "images": null,
+    "description": "Cheesecake con galletas Oreo en vaso. Desde 5 unidades.",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "3281f714-eb02-4e77-be95-417e00e4c07d",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 30,
+    "name": "Limón cocado en vaso",
+    "price": 16000,
+    "image": "/assets/MiniLimonCocado.jpeg",
+    "images": null,
+    "description": "Postre de limón en vaso. Desde 5 unidades.",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "5b2fd138-43d9-48ed-b93f-c14db20fd6aa",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 32,
+    "name": "Tiramisu en vaso",
+    "price": 16000,
+    "image": "/assets/MiniTiramisu.jpeg",
+    "images": null,
+    "description": "Postre tiramisú en vaso. Desde 5 unidades.",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "61f3bc33-4205-4364-857e-0c62385b5080",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 33,
+    "name": "Alfajores de maicena",
+    "price": 6000,
+    "image": "/assets/AlfajoresDeMaicena.jpeg",
+    "images": null,
+    "description": "Alfajores rellenos de dulce de leche (docena)",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "a822f862-5a21-46b5-9e41-cabe724a2139",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 34,
+    "name": "Alfajores de miel",
+    "price": 6500,
+    "image": "/assets/AlfajoresDeMiel.jpeg",
+    "images": null,
+    "description": "Alfajores de miel rellenos (docena)",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "d3a8371b-adda-43aa-9745-78776c2a89c0",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 35,
+    "name": "Alfajores de chocolate",
+    "price": 7000,
+    "image": "/assets/AlfajoresDeChocolate.jpeg",
+    "images": null,
+    "description": "Alfajores bañados en chocolate (docena)",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "1069072d-c376-4f9a-ac87-633678bb607b",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 36,
+    "name": "Conitos de dulce de leche",
+    "price": 7000,
+    "image": "/assets/Conitos.jpeg",
+    "images": null,
+    "description": "Conitos rellenos de dulce de leche (docena)",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "f53b0010-3ce0-4240-9fbf-d3931ab45a1f",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 37,
+    "name": "Cakepops",
+    "price": 8000,
+    "image": "/assets/Cakepops.jpeg",
+    "images": null,
+    "description": "Bizcochos en palito cubiertos de chocolate (docena)",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "34864645-6398-467d-9a11-16aeadf84a08",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 38,
+    "name": "Pan con semilla de 900 gr",
+    "price": 4000,
+    "image": "/assets/PanIntegralChico.jpeg",
+    "images": null,
+    "description": "Pan 100% integral con semillas de sesamo, lino, girasol y zapallo",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "67c8969a-c3b0-45fa-bf85-af8f2bf055ad",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Panadería",
+      "param2": "Harina Integral"
+    }
+  },
+  {
+    "id": 39,
+    "name": "Pan con semilla de 1,8 kg",
+    "price": 6000,
+    "image": "/assets/PanIntegral.jpeg",
+    "images": null,
+    "description": "Pan 100% integral con semillas de sesamo, lino, girasol y zapallo",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "29ec0486-5c20-49d6-8efa-4e6990ef4629",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Panadería",
+      "param2": "Harina Integral"
+    }
+  },
+  {
+    "id": 40,
+    "name": "Focaccias",
+    "price": 6000,
+    "image": "/assets/Focaccias.jpeg",
+    "images": null,
+    "description": "Saborizadas de: aceitunas, cebolla, cherris y albahaca, ajo",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "65dd5496-52f9-456e-ba1c-b2d5381db6c8",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Panadería",
+      "param2": "Harina Blanca"
+    }
+  },
+  {
+    "id": 41,
+    "name": "Scones",
+    "price": 6000,
+    "image": "/assets/Scones.jpeg",
+    "images": null,
+    "description": "Precio por 6 unidades. Rellenos de queso",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "29a73125-f608-4226-ba13-151477cb05eb",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Panadería",
+      "param2": "Harina Blanca"
+    }
+  },
+  {
+    "id": 42,
+    "name": "Tortas con crema",
+    "price": 45000,
+    "image": "/assets/Tortasconcrema.jpeg",
+    "images": null,
+    "description": "Consultar para más información. El precio es precio mínimo",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "9c41d20c-2f97-4c8c-99fa-eb72282a562d",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Tortas"
+    }
+  },
+  {
+    "id": 43,
+    "name": "Tortas con butter cream",
+    "price": 50000,
+    "image": "/assets/Tortaenbutter.jpeg",
+    "images": null,
+    "description": "Consultar para más información. El precio es precio mínimo",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "0c4e32f0-c67a-41dc-abe6-79118d674073",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Tortas"
+    }
+  },
+  {
+    "id": 44,
+    "name": "Selva negra",
+    "price": 45000,
+    "image": "/assets/Tortaselvanegra.jpeg",
+    "images": null,
+    "description": "Torta de bizcochuelo de chocolate con crema, dulce de leche y cerezas",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "ee7eacfc-1df5-475c-b0c1-034e9aba3be8",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Tortas"
+    }
+  },
+  {
+    "id": 45,
+    "name": "Alfajores de almendra",
+    "price": 7000,
+    "image": "/assets/AlfajoresDeAlmendra.jpeg",
+    "images": null,
+    "description": "Alfajores con almendras rellenos de dulce de leche (docena)",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "7bf16f57-76e3-4934-a51e-79ea72bdd54b",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
+  },
+  {
+    "id": 46,
+    "name": "Tarta de almendras",
+    "price": 30000,
+    "image": "/assets/TortaDeAlmendra.jpeg",
+    "images": null,
+    "description": "Masa Sableé, crema y almendras",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "a75a2693-0f74-4f31-8610-924287dbbc00",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Tartas"
+    }
+  },
+  {
+    "id": 47,
+    "name": "Pastafrola",
+    "price": 10000,
+    "image": "/assets/Pastafrola.jpeg",
+    "images": null,
+    "description": "Masa quebrada, dulce de leche y membrillo",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "ba608efb-2aeb-455c-ab11-40dff63a9ae4",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Tartas"
+    }
+  },
+  {
+    "id": 48,
+    "name": "Cookies x4",
+    "price": 15000,
+    "image": "/assets/Cookies.jpeg",
+    "images": null,
+    "description": "Cuatro unidades a elección: clásica, red velvet, chocolate o pistacho",
+    "created_at": "2026-07-18T00:06:31.235783+00:00",
+    "sold_out": false,
+    "uuid": "fbbf9b68-2ff3-4964-9c75-111c41b66154",
+    "owner": "bb0380a4-c836-45ef-bc66-b8b0d611c3e4",
+    "atributes": {
+      "param1": "Pastelería",
+      "param2": "Mini Postres"
+    }
   }
 ]

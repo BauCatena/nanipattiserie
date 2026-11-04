@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { config } from "@/data/config";
 import type { Tables } from "@/types/supabase";
 
-type Product = Tables<'productos'>;
+type Product = Tables<"productos">;
 type ProductInput = Product;
 import { normalizeProduct } from "@/lib/product-helpers";
 
@@ -17,7 +17,7 @@ type FilterGroups = {
 };
 
 const ALL_FILTER = config.catalogo.allFilterLabel;
-const PRODUCTS_URL = config.productList.productsJsonUrl;
+const PRODUCTS_URL = Product;
 
 const buildFilterGroup = (values: string[]): FilterOption[] => {
   const counts = values.reduce<Record<string, number>>((acc, value) => {

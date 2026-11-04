@@ -3,223 +3,224 @@
  * El orden de bloques en `MainLayout` define el orden visual en el inicio.
  */
 
-export const iconNameSchema = [
-  "userCheck",
-  "sparkles",
-  "shield",
-] as const
+export const iconNameSchema = ["userCheck", "sparkles", "shield"] as const;
 
-export type BenefitIconName = (typeof iconNameSchema)[number]
+export type BenefitIconName = (typeof iconNameSchema)[number];
 
 export type NavItem = {
-  label: string
-  href: string
-}
+  label: string;
+  href: string;
+};
 
-export type SocialPlatform = "instagram" | "facebook"
+export type SocialPlatform = "instagram" | "facebook";
 
 export type SocialLink = {
-  name: string
-  href: string
-  platform: SocialPlatform
-}
+  name: string;
+  href: string;
+  platform: SocialPlatform;
+};
 
 export type FaqItem = {
-  question: string
-  answer: string
-}
+  question: string;
+  answer: string;
+};
 
 export type SiteConfig = {
   meta: {
-    title: string
-    description: string
-  }
+    title: string;
+    description: string;
+  };
   theme: {
     typography: {
       /** Debe existir en el mapa de fuentes de `app/layout.tsx`. */
-      googleFont: "Open_Sans" | "Inter"
-      fontSansVar: string
-      fontMonoVar: string
-    }
+      googleFont: "Open_Sans" | "Inter";
+      fontSansVar: string;
+      fontMonoVar: string;
+    };
     colors: {
       light: {
-        background: string
-        foreground: string
-        card: string
-        cardForeground: string
-        popover: string
-        popoverForeground: string
-        primary: string
-        primaryForeground: string
-        secondary: string
-        secondaryForeground: string
-        muted: string
-        mutedForeground: string
-        accent: string
-        accentForeground: string
-        destructive: string
-        destructiveForeground: string
-        border: string
-        input: string
-        ring: string
-        chart1: string
-        chart2: string
-        chart3: string
-        chart4: string
-        chart5: string
-        sidebar: string
-        sidebarForeground: string
-        sidebarPrimary: string
-        sidebarPrimaryForeground: string
-        sidebarAccent: string
-        sidebarAccentForeground: string
-        sidebarBorder: string
-        sidebarRing: string
-      }
+        background: string;
+        foreground: string;
+        card: string;
+        cardForeground: string;
+        popover: string;
+        popoverForeground: string;
+        primary: string;
+        primaryForeground: string;
+        secondary: string;
+        secondaryForeground: string;
+        muted: string;
+        mutedForeground: string;
+        accent: string;
+        accentForeground: string;
+        destructive: string;
+        destructiveForeground: string;
+        border: string;
+        input: string;
+        ring: string;
+        chart1: string;
+        chart2: string;
+        chart3: string;
+        chart4: string;
+        chart5: string;
+        sidebar: string;
+        sidebarForeground: string;
+        sidebarPrimary: string;
+        sidebarPrimaryForeground: string;
+        sidebarAccent: string;
+        sidebarAccentForeground: string;
+        sidebarBorder: string;
+        sidebarRing: string;
+      };
       dark: {
-        background: string
-        foreground: string
-        card: string
-        cardForeground: string
-        popover: string
-        popoverForeground: string
-        primary: string
-        primaryForeground: string
-        secondary: string
-        secondaryForeground: string
-        muted: string
-        mutedForeground: string
-        accent: string
-        accentForeground: string
-        destructive: string
-        destructiveForeground: string
-        border: string
-        input: string
-        ring: string
-        chart1: string
-        chart2: string
-        chart3: string
-        chart4: string
-        chart5: string
-        sidebar: string
-        sidebarForeground: string
-        sidebarPrimary: string
-        sidebarPrimaryForeground: string
-        sidebarAccent: string
-        sidebarAccentForeground: string
-        sidebarBorder: string
-        sidebarRing: string
-      }
-      radius: string
-    }
-  }
+        background: string;
+        foreground: string;
+        card: string;
+        cardForeground: string;
+        popover: string;
+        popoverForeground: string;
+        primary: string;
+        primaryForeground: string;
+        secondary: string;
+        secondaryForeground: string;
+        muted: string;
+        mutedForeground: string;
+        accent: string;
+        accentForeground: string;
+        destructive: string;
+        destructiveForeground: string;
+        border: string;
+        input: string;
+        ring: string;
+        chart1: string;
+        chart2: string;
+        chart3: string;
+        chart4: string;
+        chart5: string;
+        sidebar: string;
+        sidebarForeground: string;
+        sidebarPrimary: string;
+        sidebarPrimaryForeground: string;
+        sidebarAccent: string;
+        sidebarAccentForeground: string;
+        sidebarBorder: string;
+        sidebarRing: string;
+      };
+      radius: string;
+    };
+  };
   header: {
     logo: {
-      src: string
-      alt: string
-      widthDesktop: number
-      heightDesktop: number
-      widthMobile: number
-      heightMobile: number
-    }
-    tagline: string
-    navDesktop: NavItem[]
-    navMobile: NavItem[]
-    adminLink: NavItem
-    menuOpenAria: string
-    menuCloseAria: string
-  }
+      src: string;
+      alt: string;
+      widthDesktop: number;
+      heightDesktop: number;
+      widthMobile: number;
+      heightMobile: number;
+    };
+    tagline: string;
+    navDesktop: NavItem[];
+    navMobile: NavItem[];
+    menuOpenAria: string;
+    menuCloseAria: string;
+  };
   hero: {
-    sectionId: string
-    eyebrow: string
-    title: string
-    lead: string
+    sectionId: string;
+    eyebrow: string;
+    title: string;
+    lead: string;
     benefits: Array<{
-      titulo: string
-      descripcion: string
-      icon: BenefitIconName
-    }>
-  }
+      titulo: string;
+      descripcion: string;
+      icon: BenefitIconName;
+    }>;
+  };
   productList: {
-    sectionId: string
-    eyebrow: string
-    title: string
-    productsJsonUrl: string
-    categorySubtitleSingular: string
-    categorySubtitlePlural: string
-    tapToSelect: string
-    backSelectStyle: string
-    backSingleCta: string
-    backButtonDescription: string
-    tapToFlipBack: string
-  }
+    sectionId: string;
+    eyebrow: string;
+    title: string;
+    productsJsonUrl: string;
+    categorySubtitleSingular: string;
+    categorySubtitlePlural: string;
+    tapToSelect: string;
+    backSelectStyle: string;
+    backSingleCta: string;
+    backButtonDescription: string;
+    tapToFlipBack: string;
+  };
   footer: {
-    sectionId: string
-    brandAriaLabel: string
-    brandTagline: string
+    sectionId: string;
+    brandAriaLabel: string;
+    brandTagline: string;
     contactCta: {
-      href: string
-      label: string
-    }
-    quickLinksTitle: string
-    quickLinks: NavItem[]
-    faqTitle: string
-    faqs: FaqItem[]
-    copyright: string
-    policyLinks: NavItem[]
-    social: SocialLink[]
-  }
+      href: string;
+      label: string;
+    };
+    quickLinksTitle: string;
+    quickLinks: NavItem[];
+    faqTitle: string;
+    faqs: FaqItem[];
+    copyright: string;
+    policyLinks: NavItem[];
+    social: SocialLink[];
+  };
   catalogo: {
-    allFilterLabel: string
-    backToHome: string
-    verCarrito: string
-    heroEyebrow: string
-    pageTitle: string
-    emptyMessage: string
-    favoriteAddAria: string
-    favoriteRemoveAria: string
-    consultButtonLabel: string
-    instagramUser: string
+    allFilterLabel: string;
+    backToHome: string;
+    verCarrito: string;
+    heroEyebrow: string;
+    pageTitle: string;
+    emptyMessage: string;
+    favoriteAddAria: string;
+    favoriteRemoveAria: string;
+    consultButtonLabel: string;
+    instagramUser: string;
     consult: {
-      default: string
-      byCategory: Record<string, string>
-    }
+      default: string;
+      byCategory: Record<string, string>;
+    };
+    filters: {
+      categoryLabel: string;
+      subcategoryLabel: string;
+      availableLabel: string;
+      soldOutLabel: string;
+      clearLabel: string;
+    };
     /** Número WhatsApp en formato E.164 sin +: ej. 54911xxxxxxxx */
-    whatsappPhoneE164: string
+    whatsappPhoneE164: string;
     producto: {
-      backToCatalog: string
-      detalleEyebrow: string
-      loading: string
-      notFoundTitle: string
-      notFoundCta: string
-      noDescription: string
-      addToCart: string
-      addedFeedback: string
-      consultWhatsApp: string
-    }
-  }
+      backToCatalog: string;
+      detalleEyebrow: string;
+      loading: string;
+      notFoundTitle: string;
+      notFoundCta: string;
+      noDescription: string;
+      addToCart: string;
+      addedFeedback: string;
+      consultWhatsApp: string;
+    };
+  };
   carrito: {
-    pageTitle: string
-    heroEyebrow: string
-    backToCatalog: string
-    emptyMessage: string
-    estimatedLabel: string
-    sendWhatsAppLabel: string
-    removeLineAria: string
+    pageTitle: string;
+    heroEyebrow: string;
+    backToCatalog: string;
+    emptyMessage: string;
+    estimatedLabel: string;
+    sendWhatsAppLabel: string;
+    removeLineAria: string;
     /** Plantilla del mensaje: use {items} y {total} (total numérico con 2 decimales). */
-    whatsappMessageTemplate: string
-    tableProduct: string
-    tableQty: string
-    tableUnit: string
-    tableSubtotal: string
-  }
-}
+    whatsappMessageTemplate: string;
+    tableProduct: string;
+    tableQty: string;
+    tableUnit: string;
+    tableSubtotal: string;
+  };
+};
 
 export const config: SiteConfig = {
   meta: {
-    title: "MÜNT STORE",
-    description:
-      "Productos para el deporte",
+    title: "Nani Patisserie",
+    description: "Productos 100% artesanales",
   },
   theme: {
     typography: {
@@ -302,7 +303,7 @@ export const config: SiteConfig = {
   header: {
     logo: {
       src: "/logo1.svg",
-      alt: "MÜNT STORE",
+      alt: "Nani Patisserie",
       widthDesktop: 500,
       heightDesktop: 186,
       widthMobile: 300,
@@ -312,18 +313,14 @@ export const config: SiteConfig = {
     navDesktop: [
       { label: "Inicio", href: "/" },
       { label: "Catálogo", href: "/catalogo" },
-      { label: "Contacto", href: "#contacto" },
     ],
     navMobile: [
       { label: "Inicio", href: "/" },
-      { label: "Categorías", href: "#categorias" },
       { label: "Catálogo", href: "/catalogo" },
-      { label: "Newsletter", href: "#newsletter" },
-      { label: "Contacto", href: "#contacto" },
+      { label: "Contacto", href: "" },
     ],
     menuOpenAria: "Abrir menú",
     menuCloseAria: "Cerrar menú",
-    adminLink: { label: "Admin", href: "/admin" },
   },
   hero: {
     sectionId: "newsletter",
@@ -333,42 +330,38 @@ export const config: SiteConfig = {
     benefits: [
       {
         titulo: "Titulo de la ventaja 1",
-        descripcion:
-          "Descripción de la ventaja 1",
+        descripcion: "Descripción de la ventaja 1",
         icon: "userCheck",
       },
       {
         titulo: "Titulo de la ventaja 2",
-        descripcion:
-          "Descripción de la ventaja 2",
+        descripcion: "Descripción de la ventaja 2",
         icon: "sparkles",
       },
       {
         titulo: "Titulo de la ventaja 3",
-        descripcion:
-          "Descripción de la ventaja 3",
+        descripcion: "Descripción de la ventaja 3",
         icon: "shield",
       },
     ],
   },
   productList: {
-    sectionId: "Sección de productos",
-    eyebrow: "Subtitulo de la sección de productos",
-    title: "Nuestros productos de SOX",
+    sectionId: "Título productos",
+    eyebrow: "Productos 100% artesanales",
+    title: "Nuestros productos",
     productsJsonUrl: "/products.json",
     categorySubtitleSingular: "{count} producto disponible",
     categorySubtitlePlural: "{count} productos disponibles",
     tapToSelect: "Toca para seleccionar",
-    backSelectStyle: "Seleccione una opción",
+    backSelectStyle: "",
     backSingleCta: "Texto de la sección de productos",
-    backButtonDescription: "Texto de la sección de productos",
+    backButtonDescription: "Toca para ver más",
     tapToFlipBack: "Toca para volver",
   },
   footer: {
     sectionId: "contacto",
     brandAriaLabel: "Nombre del negocio",
-    brandTagline:
-      "Slogan",
+    brandTagline: "Slogan",
     contactCta: {
       href: "https://ig.me/m/nombre_del_negocio",
       label: "Texto de la sección de contacto",
@@ -384,33 +377,27 @@ export const config: SiteConfig = {
     faqs: [
       {
         question: "Texto de la pregunta 1",
-        answer:
-          "Texto de la respuesta 1",
+        answer: "Texto de la respuesta 1",
       },
       {
         question: "Texto de la pregunta 2",
-        answer:
-          "Texto de la respuesta 2",
+        answer: "Texto de la respuesta 2",
       },
       {
         question: "Texto de la pregunta 3",
-        answer:
-          "Texto de la respuesta 3",
+        answer: "Texto de la respuesta 3",
       },
       {
         question: "Texto de la pregunta 4",
-        answer:
-          "Texto de la respuesta 4",
+        answer: "Texto de la respuesta 4",
       },
       {
         question: "Texto de la pregunta 5",
-        answer:
-          "Texto de la respuesta 5",
+        answer: "Texto de la respuesta 5",
       },
       {
         question: "Texto de la pregunta 6",
-        answer:
-          "Texto de la respuesta 6",
+        answer: "Texto de la respuesta 6",
       },
     ],
     copyright: "© {year} Nombre del negocio. Todos los derechos reservados.",
@@ -421,7 +408,7 @@ export const config: SiteConfig = {
     social: [
       {
         name: "Instagram",
-        href: "https://instagram.com/nombre_del_negocio",
+        href: "https://instagram.com/nanipatisserie",
         platform: "instagram",
       },
       {
@@ -435,34 +422,38 @@ export const config: SiteConfig = {
     allFilterLabel: "Todos",
     backToHome: "Volver al inicio",
     verCarrito: "Ver carrito",
-    heroEyebrow: "Nuestros productos",
+    heroEyebrow: "Productos completamente artesanales",
     pageTitle: "Catálogo de productos",
     emptyMessage: "No se encontraron productos con los filtros seleccionados.",
     favoriteAddAria: "Agregar a favoritos",
     favoriteRemoveAria: "Quitar de favoritos",
-    consultButtonLabel: "",
-    instagramUser: "",
+    consultButtonLabel: "Consultar por Instagram",
+    instagramUser: "nanipatisserie",
     consult: {
-      default: "Hola buenas! Estoy interesado en su producto: ",
+      default: "Hola como estás? Te escribo por",
       byCategory: {
-        Recetados:
-          "Texto de la consulta por categoria 1",
-        "Tipo de producto 2":
-          "Texto de la consulta por categoria 2",
+        "Tipo de producto 1": "Hola como estas? te consulto por",
+        "Tipo de producto 2": "Texto de la consulta por categoria 2",
         "Tipo de producto 3": "Texto de la consulta por categoria 3",
         "Tipo de producto 4": "Texto de la consulta por categoria 4",
-        "Tipo de producto 5":
-          "Texto de la consulta por categoria 5",
+        "Tipo de producto 5": "Texto de la consulta por categoria 5",
       },
     },
-    whatsappPhoneE164: "Número de WhatsApp en formato E.164 sin +: ej. 54911xxxxxxxx",
+    filters: {
+      categoryLabel: "Categoría",
+      subcategoryLabel: "Subcategoría",
+      availableLabel: "Disponibles",
+      soldOutLabel: "Agotados",
+      clearLabel: "Limpiar filtros",
+    },
+    whatsappPhoneE164: "5492634256353",
     producto: {
       backToCatalog: "Volver al catálogo",
-      detalleEyebrow: "Titulo de la sección de detalle de producto",
+      detalleEyebrow: "Hechos con dedicación",
       loading: "Cargando…",
       notFoundTitle: "No encontramos este producto",
       notFoundCta: "Ir al catálogo",
-      noDescription: "Texto de la sección de detalle de producto",
+      noDescription: "No hay descripción de este producto",
       addToCart: "Agregar al carrito",
       addedFeedback: "Producto agregado al carrito",
       consultWhatsApp: "Consultar por WhatsApp",
@@ -470,17 +461,16 @@ export const config: SiteConfig = {
   },
   carrito: {
     pageTitle: "Carrito",
-    heroEyebrow: "Últimos pasos para completar tu compra",
+    heroEyebrow: "Estos productos has cargado en el carrito",
     backToCatalog: "Seguir comprando",
     emptyMessage: "Todavía no hay productos en el carrito.",
-    estimatedLabel: "Total:",
+    estimatedLabel: "Total estimado",
     sendWhatsAppLabel: "Enviar pedido por WhatsApp",
     removeLineAria: "Quitar del carrito",
-    whatsappMessageTemplate:
-      "Texto de la sección de carrito",
+    whatsappMessageTemplate: "Texto de la sección de carrito",
     tableProduct: "Producto",
     tableQty: "Cant.",
     tableUnit: "P. unit.",
     tableSubtotal: "Subtotal",
   },
-}
+};

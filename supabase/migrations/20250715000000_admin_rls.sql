@@ -1,17 +1,18 @@
--- Admin panel schema: RLS policies + image storage
+-- Admin panel schema: Hardened RLS policies + image storage
 -- Run this in the Supabase SQL editor or via `supabase db push`
 
 -- ---------------------------------------------------------------------------
--- productos: row-level security
+-- productos: row-level security (Hardened)
 -- ---------------------------------------------------------------------------
 
 alter table public.productos enable row level security;
 
--- Public read (customer catalog)
+-- Restricted read: Owners can only view their own products (Replaced public read)
 drop policy if exists "productos_select_public" on public.productos;
-create policy "productos_select_public"
+drop policy if exists "productos_select_owner" on public.productos;
+create policy "productos_select_owner"
   on public.productos for select
-  using (true);
+  using (auth.uid() = owner);
 
 -- Owners manage their own products
 drop policy if exists "productos_insert_owner" on public.productos;
@@ -79,6 +80,7 @@ create policy "product_images_insert"
     and (storage.foldername(name))[1] = auth.uid()::text
   );
 
+drop policy if exists "product_images_update" on storage.objects;
 drop policy if exists "product_images_update" on storage.objects;
 create policy "product_images_update"
   on storage.objects for update

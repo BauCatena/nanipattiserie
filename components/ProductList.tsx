@@ -1,24 +1,27 @@
-"use client"
+"use client";
 
-import React, { useEffect, useMemo, useState } from "react"
-import { Glasses, Sun, User, Users, Package } from "lucide-react"
-import { OptikHoverButton } from "@/components/optik-hover-button"
-import type { SiteConfig } from "@/data/config"
-import { normalizeProduct, type NormalizedProduct } from "@/lib/product-helpers"
-import { ProductInput } from "@/types/product"
+import React, { useEffect, useMemo, useState } from "react";
+import { Glasses, Sun, User, Users, Package } from "lucide-react";
+import { OptikHoverButton } from "@/components/optik-hover-button";
+import type { SiteConfig } from "@/data/config";
+import {
+  normalizeProduct,
+  type NormalizedProduct,
+} from "@/lib/product-helpers";
+import { ProductInput } from "@/types/product";
 
 type Product = NormalizedProduct;
 
 type CategoryCard = {
-  id: string
-  title: string
-  subtitle: string
-  image: string
-  icon: React.ReactNode
-  param2Values: string[]
-}
+  id: string;
+  title: string;
+  subtitle: string;
+  image: string;
+  icon: React.ReactNode;
+  param2Values: string[];
+};
 
-export type ProductListProps = SiteConfig["productList"]
+export type ProductListProps = SiteConfig["productList"];
 
 function FlipCard({
   id,
@@ -32,36 +35,36 @@ function FlipCard({
   onToggle,
   labels,
 }: {
-  id: string
-  category: string
-  title: string
-  subtitle: string
-  bgImage: string
-  param2Values: string[]
-  icon: React.ReactNode
-  isFlipped: boolean
-  onToggle: (id: string) => void
+  id: string;
+  category: string;
+  title: string;
+  subtitle: string;
+  bgImage: string;
+  param2Values: string[];
+  icon: React.ReactNode;
+  isFlipped: boolean;
+  onToggle: (id: string) => void;
   labels: {
-    backSelectStyle: string
-    backSingleCta: string
-    backButtonDescription: string
-    tapToSelect: string
-    tapToFlipBack: string
-  }
+    backSelectStyle: string;
+    backSingleCta: string;
+    backButtonDescription: string;
+    tapToSelect: string;
+    tapToFlipBack: string;
+  };
 }) {
   const handleNavigate = (param2?: string) => {
-    const params = new URLSearchParams({ param1: category })
-    if (param2) params.set("param2", param2)
-    window.location.href = `/catalogo?${params.toString()}`
-  }
+    const params = new URLSearchParams({ param1: category });
+    if (param2) params.set("param2", param2);
+    window.location.href = `/catalogo?${params.toString()}`;
+  };
 
   const normalizedParam2Values = param2Values.filter(
-    (value) => value.toLowerCase() !== "unisex"
-  )
+    (value) => value.toLowerCase() !== "unisex",
+  );
   const backOptions: { label: string; value?: string }[] =
     normalizedParam2Values.length <= 1
       ? [{ label: labels.backSingleCta, value: undefined }]
-      : normalizedParam2Values.map((value) => ({ label: value, value }))
+      : normalizedParam2Values.map((value) => ({ label: value, value }));
 
   return (
     <div
@@ -78,7 +81,9 @@ function FlipCard({
       >
         <div
           className={`absolute inset-0 rounded-lg overflow-hidden bg-cover bg-center transition-opacity duration-500 ${
-            isFlipped ? "pointer-events-none opacity-0" : "pointer-events-auto opacity-100"
+            isFlipped
+              ? "pointer-events-none opacity-0"
+              : "pointer-events-auto opacity-100"
           }`}
           style={{
             backgroundImage: `url('${bgImage}')`,
@@ -123,14 +128,14 @@ function FlipCard({
             <div className="flex flex-col gap-4 w-full max-w-xs">
               {backOptions.map((option, index) => {
                 const Icon =
-                  backOptions.length === 1 ? Users : index === 0 ? User : Users
+                  backOptions.length === 1 ? Users : index === 0 ? User : Users;
 
                 return (
                   <OptikHoverButton
                     key={option.value ?? "unisex"}
                     onClick={(e) => {
-                      e.stopPropagation()
-                      handleNavigate(option.value)
+                      e.stopPropagation();
+                      handleNavigate(option.value);
                     }}
                     title={option.label}
                     description={labels.backButtonDescription}
@@ -138,7 +143,7 @@ function FlipCard({
                       <Icon className="w-6 h-6 text-muted-foreground group-hover:text-accent transition-colors duration-300" />
                     }
                   />
-                )
+                );
               })}
             </div>
 
@@ -149,7 +154,7 @@ function FlipCard({
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 const slugify = (text: string) =>
@@ -158,14 +163,16 @@ const slugify = (text: string) =>
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
+    .replace(/^-+|-+$/g, "");
 
 const getCategoryIcon = (category: string) => {
-  const normalized = category.toLowerCase()
-  if (normalized.includes("sol")) return <Sun className="w-8 h-8 text-background" />
-  if (normalized.includes("accesorio")) return <Package className="w-8 h-8 text-background" />
-  return <Glasses className="w-8 h-8 text-background" />
-}
+  const normalized = category.toLowerCase();
+  if (normalized.includes("sol"))
+    return <Sun className="w-8 h-8 text-background" />;
+  if (normalized.includes("accesorio"))
+    return <Package className="w-8 h-8 text-background" />;
+  return <Glasses className="w-8 h-8 text-background" />;
+};
 
 export function ProductList({
   sectionId,
@@ -180,22 +187,24 @@ export function ProductList({
   backButtonDescription,
   tapToFlipBack,
 }: ProductListProps) {
-  const [activeCardId, setActiveCardId] = useState<string | null>(null)
-  const [products, setProducts] = useState<Product[]>([])
+  const [activeCardId, setActiveCardId] = useState<string | null>(null);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     const loadProducts = async () => {
       try {
-        const res = await fetch(productsJsonUrl)
-        const data = await res.json()
-        setProducts((data as ProductInput[]).map((item) => normalizeProduct(item)))
+        const res = await fetch(productsJsonUrl);
+        const data = await res.json();
+        setProducts(
+          (data as ProductInput[]).map((item) => normalizeProduct(item)),
+        );
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
-    }
+    };
 
-    loadProducts()
-  }, [productsJsonUrl])
+    loadProducts();
+  }, [productsJsonUrl]);
 
   const labels = {
     backSelectStyle,
@@ -203,26 +212,29 @@ export function ProductList({
     backButtonDescription,
     tapToSelect,
     tapToFlipBack,
-  }
+  };
 
   const categories = useMemo<CategoryCard[]>(() => {
-    const byCategory = products.reduce<Record<string, Product[]>>((acc, product) => {
-      acc[product.param1] = acc[product.param1]
-        ? [...acc[product.param1], product]
-        : [product]
-      return acc
-    }, {})
+    const byCategory = products.reduce<Record<string, Product[]>>(
+      (acc, product) => {
+        acc[product.param1] = acc[product.param1]
+          ? [...acc[product.param1], product]
+          : [product];
+        return acc;
+      },
+      {},
+    );
 
     return Object.entries(byCategory)
       .map(([category, categoryProducts]) => {
-        const n = categoryProducts.length
+        const n = categoryProducts.length;
         const subtitulo =
           n === 1
             ? categorySubtitleSingular.replace("{count}", String(n))
-            : categorySubtitlePlural.replace("{count}", String(n))
+            : categorySubtitlePlural.replace("{count}", String(n));
         const uniqueParam2Values = [
           ...new Set(categoryProducts.map((product) => product.param2)),
-        ]
+        ];
         return {
           id: slugify(category),
           title: category,
@@ -230,14 +242,14 @@ export function ProductList({
           image: categoryProducts[0]?.image ?? "",
           icon: getCategoryIcon(category),
           param2Values: uniqueParam2Values,
-        }
+        };
       })
-      .sort((a, b) => a.title.localeCompare(b.title))
-  }, [products, categorySubtitleSingular, categorySubtitlePlural])
+      .sort((a, b) => a.title.localeCompare(b.title));
+  }, [products, categorySubtitleSingular, categorySubtitlePlural]);
 
   const handleToggle = (id: string) => {
-    setActiveCardId((prev) => (prev === id ? null : id))
-  }
+    setActiveCardId((prev) => (prev === id ? null : id));
+  };
 
   return (
     <section id={sectionId} className="py-20 md:py-32 bg-background">
@@ -270,5 +282,5 @@ export function ProductList({
         </div>
       </div>
     </section>
-  )
+  );
 }
