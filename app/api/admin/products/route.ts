@@ -35,6 +35,43 @@ export async function GET() {
     );
   }
 }
+export async function POST(request: NextRequest) {
+  const ownerId = process.env.OWNER_ID;
+  if (!ownerId) {
+    console.error("[POST Products] Missing OWNER_ID env variable");
+    return NextResponse.json({ error: "Missing OWNER_ID" }, { status: 500 });
+  }
+
+  try {
+    const body = await request.json().catch(() => ({}));
+    const supabase = createAdminClient();
+
+    // Attach the owner ID to the incoming product payload
+    const productPayload = {
+      ...body,
+      owner: ownerId,
+    };
+
+    const { data, error } = await supabase
+      .from("productos")
+      .insert([productPayload])
+      .select()
+      .single();
+
+    if (error) {
+      console.error("[POST Products] Supabase error:", error);
+      throw error;
+    }
+
+    return NextResponse.json(normalizeProduct(data), { status: 201 });
+  } catch (err: any) {
+    console.error("[POST Products] Error:", err.message || err);
+    return NextResponse.json(
+      { error: err.message || "Internal Server Error" },
+      { status: 500 },
+    );
+  }
+}
 
 export async function PUT(request: NextRequest, { params }: RouteParams) {
   const ownerId = process.env.OWNER_ID;
