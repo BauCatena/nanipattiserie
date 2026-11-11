@@ -33,7 +33,9 @@ export default function AdminDashboardPage() {
   const loadProducts = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/admin/products");
+      const res = await fetch("/api/admin/products", {
+        credentials: "include",
+      });
       if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
       setProducts(data);
@@ -54,6 +56,7 @@ export default function AdminDashboardPage() {
     if (!user) return;
     try {
       const res = await fetch("/api/admin/products", {
+        credentials: "include",
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
